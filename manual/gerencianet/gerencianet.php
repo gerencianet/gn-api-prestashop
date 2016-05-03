@@ -57,8 +57,8 @@ class Gerencianet extends PaymentModule
 		parent::__construct();
 
 		$this->displayName = $this->l('Gerencianet');
-		$this->description = $this->l('Accept payments for your products via Gerencianet payment Gateway.');
-		$this->confirmUninstall = $this->l('Are you sure about removing these details?');
+		$this->description = $this->l('Receba pagamentos com Boleto Bancário ou Cartão de Crédito');
+		$this->confirmUninstall = $this->l('Tem certeza que deseja remover?');
 	}
 
 	public function install()
