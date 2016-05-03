@@ -1,37 +1,48 @@
-# Gerencianet
+# Módulo de Integração Gerencianet para PrestaShop - Versão 0.1.0 #
 
-## About
+O módulo Gerencianet para PrestaShop permite receber pagamentos por meio do checkout transparente da nossa API.
+Compatível com as versões do PrestaShop a partir de 1.6.0.
 
-Accept payments for your products via Boleto ou Cartão de Crédito transfer.
+Este é o Módulo de integração fornecido pela [Gerencianet](https://gerencianet.com.br/) para PrestaShop. Com ele, o proprietário da loja pode optar por receber pagamentos por boleto bancário e/ou cartão de crédito. Todo processo é realizado por meio do checkout transparente. Com isso, o comprador não precisa sair do site da loja para efetuar o pagamento.
 
-## Contributing
+Caso você tenha alguma dúvida ou sugestão, entre em contato conosco pelo site [Gerencianet](https://gerencianet.com.br/).
 
-PrestaShop modules are open-source extensions to the PrestaShop e-commerce solution. Everyone is welcome and even encouraged to contribute with their own improvements.
+## Instalação
 
-### Requirements
+### Automática
 
-Contributors **must** follow the following rules:
+1. Faça o download da [última versão](auto/) do módulo (arquivo 'gerencianet.zip').
+2. Acesse a administração da sua loja, acesse o link "Módulos" -> "Adicionar novo Módulo" e envie o arquivo 'gerencianet.zip' que você acabou de baixar.
+3. Depois de enviar o módulo para sua loja, clica em "Instalar" e aguarde a finalização do processo.
+4. Configure o módulo em "Módulos" > "Gerencianet" > "Configurar" e comece a receber pagamentos.
 
-* **Make your Pull Request on the "dev" branch**, NOT the "master" branch.
-* Do not update the module's version number.
-* Follow [the coding standards][1].
+### Manual
 
-### Process in details
+1. Faça o download da [última versão](auto/) do módulo (arquivo 'gerencianet.zip') e extraia seu conteúdo ou realize o download da [última versão descompactada](manual/).
+2. Acesse a loja via FTP e envie toda a pasta 'gerencianet' descompactada para a pasta de destino 'modules' que se encontra na raiz dos arquivos da loja no servidor.
+3. Acesse a administração da loja e acesse o link "Módulos". Procure pelo módulo da Gerencianet na lista, clique em "Instalar" e aguarde a finalização do processo.
+4. Configure o módulo em "Módulos" > "Gerencianet" > "Configurar" e comece a receber pagamentos.
 
-Contributors wishing to edit a module's files should follow the following process:
 
-1. Create your GitHub account, if you do not have one already.
-2. Fork the bankwire project to your GitHub account.
-3. Clone your fork to your local machine in the ```/modules``` directory of your PrestaShop installation.
-4. Create a branch in your local clone of the module for your changes.
-5. Change the files in your branch. Be sure to follow [the coding standards][1]!
-6. Push your changed branch to your fork in your GitHub account.
-7. Create a pull request for your changes **on the _'dev'_ branch** of the module's project. Be sure to follow [the commit message norm][2] in your pull request. If you need help to make a pull request, read the [Github help page about creating pull requests][3].
-8. Wait for one of the core developers either to include your change in the codebase, or to comment on possible improvements you should make to your code.
+## Configuração
 
-That's it: you have contributed to this open-source project! Congratulations!
+1. Instale o plugin.
+2. Na área de administração da loja, acesse "Modúlos" > "Gerencianet" > "Configurar".
+3. Na aba "Configurações Gerais", você poderá configurar os seguintes itens:
+4. "Modo": Configure se deseja ativar o módulo em Desenvolvimento (ambiente de testes) ou Produção (cobrança real).
+5. "Opções de Pagamento": Configure as opções de pagamento que deseja receber: Boleto e/ou Cartão de Crédito.
+6. "Dias para vencimento do Boleto": Configure o número de dias corridos para vencimento do Boleto.
+7. "Desconto para pagamento no boleto(%)": Defina se deseja aplicar desconto para pagamentos com Boleto.
+8. "Atualizar status dos pedidos PrestaShop automaticamente": Configure se deseja que o módulo atualize os status dos pedidos da loja automaticamente de acordo com as notificações da Gerencianet.
+9. "Status": Configure se o Módulo estará disponível para os clientes.
+10. Na aba "Credenciais", você deverá inserir as credenciais de Aplicação Gerencianet. Para ter acesso à essas credenciais, você deverá criar uma nova Aplicação Gerencianet ou utilizar uma já existe. Para criar uma Aplicação, entre em sua conta Gerencianet, acesse o menu "API" e clique em "Minhas Aplicações" -> "Nova aplicação". Escolha um nome e crie a Nova Aplicação. Agora já já terá acesso às credenciais da Aplicação. Copie-as e insira nos respectivos campos da aba "Credenciais" em sua loja (Client ID e Client Secret de produção e desenvolvimento).
+11. Insira o Payee Code (identificador da conta) de sua conta Gerencianet.
+12. Clique em "Salvar" e agora sua loja virtual já está pronta para receber pagamentos pela Gerencianet.
 
-[1]: http://doc.prestashop.com/display/PS16/Coding+Standards
-[2]: http://doc.prestashop.com/display/PS16/How+to+write+a+commit+message
-[3]: https://help.github.com/articles/using-pull-requests
+Recomendamos que antes de disponibilizar pagamentos pela Gerencianet, o lojista realize testes de cobrança com o sandbox(ambiente de testes) ativado para verificar se o procedimento de pagamento está acontecendo conforme esperado.
 
+
+## Requisitos
+
+* Versão mínima do PHP: 5.4.0
+* Versão mínima do PrestaShop: 1.6.x

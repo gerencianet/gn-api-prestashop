@@ -53,26 +53,12 @@ class Gerencianet extends PaymentModule
 		$this->currencies = true;
 		$this->currencies_mode = 'checkbox';
 
-		$config = Configuration::getMultiple(array('BANK_WIRE_DETAILS', 'BANK_WIRE_OWNER', 'BANK_WIRE_ADDRESS'));
-		if (!empty($config['BANK_WIRE_OWNER']))
-			$this->owner = $config['BANK_WIRE_OWNER'];
-		if (!empty($config['BANK_WIRE_DETAILS']))
-			$this->details = $config['BANK_WIRE_DETAILS'];
-		if (!empty($config['BANK_WIRE_ADDRESS']))
-			$this->address = $config['BANK_WIRE_ADDRESS'];
-
 		$this->bootstrap = true;
 		parent::__construct();
 
 		$this->displayName = $this->l('Gerencianet');
 		$this->description = $this->l('Accept payments for your products via Gerencianet payment Gateway.');
 		$this->confirmUninstall = $this->l('Are you sure about removing these details?');
-
-		/*$this->extra_mail_vars = array(
-			'{gerencianet_owner}' => 'teste1',//Configuration::get('BANK_WIRE_OWNER'),
-			'{gerencianet_details}' => 'teste2',//nl2br(Configuration::get('BANK_WIRE_DETAILS')),
-			'{gerencianet_address}' => 'teste3',//nl2br(Configuration::get('BANK_WIRE_ADDRESS'))
-		);*/
 	}
 
 	public function install()
@@ -246,7 +232,7 @@ class Gerencianet extends PaymentModule
 							$this->updateOrderHistory($orderIdFromNotification, Configuration::get('GERENCIANET_CHARGE_CODE_CANCELLED'));
 							break;
 						default:
-							//no action
+							
 							break;
 					}
 				}
