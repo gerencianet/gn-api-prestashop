@@ -45,7 +45,7 @@ class Gerencianet extends PaymentModule
 	{
 		$this->name = 'gerencianet';
 		$this->tab = 'payments_gateways';
-		$this->version = '0.1.0';
+		$this->version = '0.1.1';
 		$this->author = 'Gerencianet';
 		$this->controllers = array('payment', 'validation');
 		$this->is_eu_compatible = 1;
@@ -454,6 +454,7 @@ class Gerencianet extends PaymentModule
 			'gerencianetDetails' => Tools::nl2br($this->details),
 			'gerencianetAddress' => Tools::nl2br($this->address),
 			'gerencianetOwner' => $this->owner,
+			'this_path' => Media::getMediaPath(_PS_MODULE_DIR_.$this->name.'/'),
 			'status' => 'ok',
 			'id_order' => $params['objOrder']->id,
 			'charge_type' => Tools::getValue('charge_type'),

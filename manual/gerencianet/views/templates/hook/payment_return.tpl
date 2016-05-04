@@ -25,7 +25,7 @@
 
 {if $status == 'ok'}
 
-<link rel="stylesheet" type="text/css" href="modules/gerencianet/assets/css/checkout.css" />
+<link rel="stylesheet" type="text/css" href="{$this_path}assets/css/checkout.css" />
 <p class="alert alert-success">{l s='Seu Pedido em %s está completo.' sprintf=$shop_name mod='gerencianet'}</p>
 <p>
     {if !isset($reference)}
@@ -41,7 +41,7 @@
         <div class="gn-success-payment">
             <div class="gn-row gn-box-emission">
                 <div class="pull-left gn-left-space-2">
-                    <img src="modules/gerencianet/assets/images/gerencianet-configurations.png" alt="Gerencianet" title="Gerencianet" />
+                    <img src="{$this_path}assets/images/gerencianet-configurations.png" alt="Gerencianet" title="Gerencianet" />
                 </div>
                 <div class="pull-left gn-title-emission">
                     {if $charge_type == 'billet'}

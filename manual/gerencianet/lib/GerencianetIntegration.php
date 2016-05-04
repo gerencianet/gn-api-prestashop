@@ -64,7 +64,7 @@ class GerencianetIntegration {
 		try {
 		    $api = new Gerencianet($options);
 		    $installments = array();
-		    $installments = $api->getInstallments($params, []);
+		    $installments = $api->getInstallments($params, array());
 		    $max_installments = end($installments['data']['installments'])['installment'] . "x de " . GerencianetIntegration::formatCurrencyBRL(end($installments['data']['installments'])['value']);
 
 		    return $max_installments;
@@ -83,7 +83,7 @@ class GerencianetIntegration {
 
 		try {
 		    $api = new Gerencianet($options);
-		    $installments = $api->getInstallments($params, []);
+		    $installments = $api->getInstallments($params, array());
 
 		    return GerencianetIntegration::result_api($installments, true);
 		} catch (GerencianetException $e) {
@@ -129,7 +129,7 @@ class GerencianetIntegration {
 
 		try {
 		    $api = new Gerencianet($options);
-		    $charge = $api->createCharge([], $body);
+		    $charge = $api->createCharge(array(), $body);
 
 		    return GerencianetIntegration::result_api($charge, true);
 
@@ -294,7 +294,7 @@ class GerencianetIntegration {
 
 		try {
 		    $api = new Gerencianet($options);
-		    $notification = $api->getNotification($params, []);
+		    $notification = $api->getNotification($params, array());
 
 	 		return GerencianetIntegration::result_api($notification, true);
 		} catch (GerencianetException $e) {

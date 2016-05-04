@@ -22,12 +22,12 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<!-- v0.1.0 -->
+<!-- v0.1.1 -->
 <style type="text/css" media="all"> 
 	div#center_column{ width: {$width_center_column|escape}; }
 	div#left_column{ display: none; }
 </style>
-<link rel="stylesheet" type="text/css" href="modules/gerencianet/assets/css/checkout.css" />
+<link rel="stylesheet" type="text/css" href="{$this_path_bw}assets/css/checkout.css" />
 
 
 <script type='text/javascript'>
@@ -98,7 +98,7 @@
 {else}
 
 <p>
-	<img src="{$this_path_bw}/assets/images/gerencianet-configurations.png" alt="{l s='Boleto ou Cartão de Crédito' mod='gerencianet'}" style="float:left; margin: 0px 10px 5px 0px;" />
+	<img src="{$this_path_bw}assets/images/gerencianet-configurations.png" alt="{l s='Boleto ou Cartão de Crédito' mod='gerencianet'}" style="float:left; margin: 0px 10px 5px 0px;" />
 	<h3>{l s='Este pagamento será processado pela Gerencianet' mod='gerencianet'}</h3>
 
 </p>
