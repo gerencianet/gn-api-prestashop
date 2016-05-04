@@ -42,11 +42,10 @@ switch ($action) {
 
 		$gnIntegration = configGnIntegration();
 
-		$post_order_id = mysql_real_escape_string(Tools::getValue('order_id'));
 		$post_brand = mysql_real_escape_string(Tools::getValue('brand'));
 
-		$context = Context::getContext();
-		$totalOrder = $context->cart->getOrderTotal(true, Cart::BOTH);
+		$cart = Context::getContext()->cart;
+		$totalOrder = $cart->getOrderTotal(true, Cart::BOTH);
 		$total = GerencianetIntegration::priceFormat($totalOrder);
 		$brand = $post_brand;
 		$gnApiResult = $gnIntegration->get_installments($total,$brand);

@@ -175,7 +175,11 @@ jQuery(document).ready(function($){
     }
 
     $('input[type=radio][name=input-payment-card-brand]').change(function() {
-        getInstallments(this.value);
+        if (this.value=="visa" || this.value=="mastercard" || this.value=="amex" || this.value=="diners" || this.value=="discover" || this.value=="jcb" || this.value=="elo" || this.value=="aura") {
+            getInstallments(this.value);
+        } else {
+            getInstallments($('input[name=input-payment-card-brand]:checked', '#payment-card-form').val());
+        }
     });
 
     $('#gn-pay-billet-button').click(function(e){
