@@ -108,9 +108,9 @@ class GerencianetPaymentModuleFrontController extends ModuleFrontController
     	}
 
     	if( isset($_SERVER['HTTPS'] ) ) {
-    		$base_url_dir = $base_dir;
+    		$base_url_dir = Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/'.$this->module->name.'/';
     	} else {
-    		$base_url_dir = $base_dir_ssl;
+    		$base_url_dir = Tools::getShopDomain(true, true).__PS_BASE_URI__.'modules/'.$this->module->name.'/';
     	}
 
 		$this->context->smarty->assign(array(

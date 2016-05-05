@@ -57,7 +57,7 @@
   });
 
 
-  var home_url = "{/literal}{$base_url_dir}modules/gerencianet/{literal}";
+  var home_url = "{/literal}{$base_url_dir}{literal}";
   var payCnpj = false;
   var showCnpjFields = true;
 
