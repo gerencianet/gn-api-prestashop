@@ -43,6 +43,9 @@ switch ($action) {
 		$gnIntegration = configGnIntegration();
 
 		$post_brand = Tools::getValue('brand', NULL);
+		if ($post_brand=="") {
+			$post_brand = $_POST['brand'];
+		}
 
 		$cart = Context::getContext()->cart;
 		$totalOrder = $cart->getOrderTotal(true, Cart::BOTH);
