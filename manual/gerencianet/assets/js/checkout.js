@@ -233,7 +233,7 @@ jQuery(document).ready(function($){
         };
         
         jQuery.ajax({
-            type: "POST",
+            type: "GET",
             url: home_url + "ajax-request.php",
             data: data,
             success: function(response) {
@@ -280,7 +280,7 @@ jQuery(document).ready(function($){
         };
         
         jQuery.ajax({
-            type: "POST",
+            type: "GET",
             url: home_url + "ajax-request.php",
             data: data,
             success: function(response) {
@@ -432,7 +432,7 @@ jQuery(document).ready(function($){
             };
             
             jQuery.ajax({
-                type: "POST",
+                type: "GET",
                 url: home_url + "ajax-request.php",
                 data: data,
                 success: function(response) {
@@ -477,7 +477,7 @@ jQuery(document).ready(function($){
         };
         
         jQuery.ajax({
-            type: "POST",
+            type: "GET",
             url: home_url + "ajax-request.php",
             data: data,
             success: function(response) {

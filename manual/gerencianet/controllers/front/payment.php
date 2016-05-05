@@ -107,7 +107,14 @@ class GerencianetPaymentModuleFrontController extends ModuleFrontController
 			$billing_number = "";
     	}
 
+    	if( isset($_SERVER['HTTPS'] ) ) {
+    		$base_url_dir = $base_dir;
+    	} else {
+    		$base_url_dir = $base_dir_ssl;
+    	}
+
 		$this->context->smarty->assign(array(
+			'base_url_dir' => $base_url_dir,
 			'nbProducts' => $cart->nbProducts(),
 			'cust_currency' => $cart->id_currency,
 			'currencies' => $this->module->getCurrency((int)$cart->id_currency),

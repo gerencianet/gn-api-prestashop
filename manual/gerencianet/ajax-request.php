@@ -34,7 +34,7 @@ include_once dirname(__FILE__).'/../../init.php';
 include_once dirname(__FILE__).'/gerencianet.php';
 include_once dirname(__FILE__).'/lib/dbGerencianetPrestaShop.php';
 
-$action = Tools::getValue('action') ;
+$action = Tools::getValue('action', NULL) ;
 
 switch ($action) {
 
@@ -42,7 +42,7 @@ switch ($action) {
 
 		$gnIntegration = configGnIntegration();
 
-		$post_brand = mysql_real_escape_string(Tools::getValue('brand'));
+		$post_brand = Tools::getValue('brand', NULL);
 
 		$cart = Context::getContext()->cart;
 		$totalOrder = $cart->getOrderTotal(true, Cart::BOTH);
@@ -79,7 +79,7 @@ switch ($action) {
 
 		$gnIntegration = configGnIntegration();
 
-		$post_order_id = mysql_real_escape_string(Tools::getValue('order_id'));
+		$post_order_id = Tools::getValue('order_id', NULL);
 
 		$cart = Context::getContext()->cart;
 		$products = $cart->getProducts();
@@ -145,14 +145,14 @@ switch ($action) {
 
 	    $expirationDate = date("Y-m-d", mktime (0, 0, 0, date("m")  , date("d")+intval($billetExpireDays), date("Y")));
 
-	    $post_order_id = mysql_real_escape_string(Tools::getValue('order_id'));
-	    $post_pay_billet_with_cnpj = mysql_real_escape_string(Tools::getValue('pay_billet_with_cnpj'));
-	    $post_corporate_name = mysql_real_escape_string(Tools::getValue('corporate_name'));
-	    $post_cnpj = mysql_real_escape_string(Tools::getValue('cnpj'));
-	    $post_name = mysql_real_escape_string(Tools::getValue('name'));
-	    $post_cpf = mysql_real_escape_string(Tools::getValue('cpf'));
-	    $post_phone_number = mysql_real_escape_string(Tools::getValue('phone_number'));
-	    $post_charge_id = mysql_real_escape_string(Tools::getValue('charge_id'));
+	    $post_order_id = Tools::getValue('order_id', NULL);
+	    $post_pay_billet_with_cnpj = Tools::getValue('pay_billet_with_cnpj', NULL);
+	    $post_corporate_name = Tools::getValue('corporate_name', NULL);
+	    $post_cnpj = Tools::getValue('cnpj', NULL);
+	    $post_name = Tools::getValue('name', NULL);
+	    $post_cpf = Tools::getValue('cpf', NULL);
+	    $post_phone_number = Tools::getValue('phone_number', NULL);
+	    $post_charge_id = Tools::getValue('charge_id', NULL);
 
 	    if ($post_pay_billet_with_cnpj && $post_corporate_name && $post_cnpj) {
 			$juridical_data = array (
@@ -227,32 +227,32 @@ switch ($action) {
 
 	case 'pay_card':
 
-		$post_order_id = mysql_real_escape_string(Tools::getValue('order_id'));
+		$post_order_id = Tools::getValue('order_id', NULL);
 		if (Tools::getValue('pay_card_with_cnpj')) {
-		    $post_pay_card_with_cnpj = mysql_real_escape_string(Tools::getValue('pay_card_with_cnpj'));
+		    $post_pay_card_with_cnpj = Tools::getValue('pay_card_with_cnpj', NULL);
 		}
 		if (Tools::getValue('corporate_name')) {
-		    $post_corporate_name = mysql_real_escape_string(Tools::getValue('corporate_name'));
+		    $post_corporate_name = Tools::getValue('corporate_name', NULL);
 		}
 		if (Tools::getValue('cnpj')) {
-			$post_cnpj = mysql_real_escape_string(Tools::getValue('cnpj'));
+			$post_cnpj = Tools::getValue('cnpj', NULL);
 		}
 	    
-	    $post_name = mysql_real_escape_string(Tools::getValue('name'));
-	    $post_cpf = mysql_real_escape_string(Tools::getValue('cpf'));
-	    $post_phone_number = mysql_real_escape_string(Tools::getValue('phone_number'));
-	    $post_email = mysql_real_escape_string(Tools::getValue('email'));
-	    $post_birth = mysql_real_escape_string(Tools::getValue('birth'));
-	    $post_street = mysql_real_escape_string(Tools::getValue('street'));
-	    $post_number = mysql_real_escape_string(Tools::getValue('number'));
-	    $post_neighborhood = mysql_real_escape_string(Tools::getValue('neighborhood'));
-	    $post_zipcode = preg_replace( '/[^0-9]/', '', mysql_real_escape_string(Tools::getValue('zipcode')));
-	    $post_city = mysql_real_escape_string(Tools::getValue('city'));
-	    $post_state = mysql_real_escape_string(Tools::getValue('state'));
-	    $post_complement = mysql_real_escape_string(Tools::getValue('complement'));
-	    $post_payment_token = mysql_real_escape_string(Tools::getValue('payment_token'));
-	    $post_installments = mysql_real_escape_string(Tools::getValue('installments'));
-	    $post_charge_id = mysql_real_escape_string(Tools::getValue('charge_id'));
+	    $post_name = Tools::getValue('name', NULL);
+	    $post_cpf = Tools::getValue('cpf', NULL);
+	    $post_phone_number = Tools::getValue('phone_number', NULL);
+	    $post_email = Tools::getValue('email', NULL);
+	    $post_birth = Tools::getValue('birth', NULL);
+	    $post_street = Tools::getValue('street', NULL);
+	    $post_number = Tools::getValue('number', NULL);
+	    $post_neighborhood = Tools::getValue('neighborhood', NULL);
+	    $post_zipcode = preg_replace( '/[^0-9]/', '', Tools::getValue('zipcode', NULL));
+	    $post_city = Tools::getValue('city', NULL);
+	    $post_state = Tools::getValue('state', NULL);
+	    $post_complement = Tools::getValue('complement', NULL);
+	    $post_payment_token = Tools::getValue('payment_token', NULL);
+	    $post_installments = Tools::getValue('installments', NULL);
+	    $post_charge_id = Tools::getValue('charge_id', NULL);
 
 	    if (isset($post_pay_card_with_cnpj) && isset($post_corporate_name) && isset($post_cnpj)) {
 			$juridical_data = array (
