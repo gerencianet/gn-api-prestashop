@@ -44,7 +44,7 @@ switch ($action) {
 
 		$post_brand = Tools::getValue('brand', NULL);
 		if ($post_brand=="") {
-			$post_brand = $_POST['brand'];
+			$post_brand = $_GET['brand'];
 		}
 
 		$cart = Context::getContext()->cart;
