@@ -29,6 +29,11 @@
 if (!defined('_PS_VERSION_'))
 	exit;*/
 
+/* SSL Management */
+if( isset($_SERVER['HTTPS'] ) ) {
+	$useSSL = true;
+}
+
 include_once dirname(__FILE__).'/../../config/config.inc.php';
 include_once dirname(__FILE__).'/../../init.php';
 include_once dirname(__FILE__).'/gerencianet.php';
@@ -339,3 +344,5 @@ function configGnIntegration() {
 function GerencianetLog($msg){
     PrestaShopLogger::addLog('DEBUG :: '.$msg, 0 , null);	
 }
+
+exit;

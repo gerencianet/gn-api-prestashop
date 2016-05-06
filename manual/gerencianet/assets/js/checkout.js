@@ -233,7 +233,7 @@ jQuery(document).ready(function($){
         };
         
         jQuery.ajax({
-            type: "GET",
+            type: "POST",
             url: home_url + "ajax-request.php",
             data: data,
             success: function(response) {
@@ -262,6 +262,7 @@ jQuery(document).ready(function($){
             }
         });
 
+        //return false;
     }
 
 
@@ -280,7 +281,7 @@ jQuery(document).ready(function($){
         };
         
         jQuery.ajax({
-            type: "GET",
+            type: "POST",
             url: home_url + "ajax-request.php",
             data: data,
             success: function(response) {
@@ -299,6 +300,8 @@ jQuery(document).ready(function($){
                 alert("error ocurred");
             }
         });
+
+        //return false;
 
     }
 
@@ -432,7 +435,7 @@ jQuery(document).ready(function($){
             };
             
             jQuery.ajax({
-                type: "GET",
+                type: "POST",
                 url: home_url + "ajax-request.php",
                 data: data,
                 success: function(response) {
@@ -452,6 +455,7 @@ jQuery(document).ready(function($){
                     alert("error ocurred");
                 }
             });
+            //return false;
           }
         };
 
@@ -477,7 +481,7 @@ jQuery(document).ready(function($){
         };
         
         jQuery.ajax({
-            type: "GET",
+            type: "POST",
             url: home_url + "ajax-request.php",
             data: data,
             success: function(response) {
@@ -495,6 +499,8 @@ jQuery(document).ready(function($){
                 alert("error ocurred");
             }
         });
+
+        //return false;
     }
 
 

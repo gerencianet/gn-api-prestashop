@@ -145,7 +145,7 @@
             </div>
         </div>
     </div>
-    <div id="collapse-payment-billet"  class="panel-collapse gn-hide" style="border-top: 1px solid #CCC;" >
+    <div id="collapse-payment-billet"  class="panel-collapse gn-hide" style="border-top: 1px solid #CCC; background-color: #FFF;" >
     <div class="panel-body">
 
     	<form class="form-horizontal" id="billet-form" name="billet-form" action="{$link->getModuleLink('gerencianet', 'validation', [], true)|escape:'html'}" method="post">
@@ -263,7 +263,7 @@
             </div>
         </div>
     </div>
-    <div id="collapse-payment-card"  class="panel-collapse gn-hide" style="border-top: 1px solid #CCC;">
+    <div id="collapse-payment-card"  class="panel-collapse gn-hide" style="border-top: 1px solid #CCC; background-color: #FFF;">
     <div class="panel-body">
 
 <form class="form-horizontal" id="payment-card-form" action="{$link->getModuleLink('gerencianet', 'validation', [], true)|escape:'html'}" method="post">
