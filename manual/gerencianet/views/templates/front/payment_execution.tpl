@@ -22,7 +22,7 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<!-- v0.1.1 -->
+<!-- v0.1.2 -->
 <style type="text/css" media="all"> 
 	div#center_column{ width: {$width_center_column|escape}; }
 	div#left_column{ display: none; }
@@ -36,10 +36,10 @@
   var s=document.createElement('script');
   s.type='text/javascript';
   var v=parseInt(Math.random()*1000000);
-  s.src='https://{/literal}{if $sandbox}sandbox{else}api{/if}{literal}.gerencianet.com.br/v1/cdn/a82c5cbae844260fa0f9e7198cad1862/'+v;
+  s.src='https://{/literal}{if $sandbox}sandbox{else}api{/if}{literal}.gerencianet.com.br/v1/cdn/{/literal}{$payee_code}{literal}/'+v;
   s.async=false;
-  s.id='a82c5cbae844260fa0f9e7198cad1862';
-  if(!document.getElementById('a82c5cbae844260fa0f9e7198cad1862')){
+  s.id='{/literal}{$payee_code}{literal}';
+  if(!document.getElementById('{/literal}{$payee_code}{literal}')){
     document.getElementsByTagName('head')[0].appendChild(s);
   };
   $gn={
@@ -55,7 +55,6 @@
   $gn.ready(function(checkout) {
       getPaymentToken = checkout.getPaymentToken;
   });
-
 
   var home_url = "{/literal}{$base_url_dir}{literal}";
   var payCnpj = false;

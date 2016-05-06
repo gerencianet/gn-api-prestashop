@@ -122,6 +122,7 @@ class GerencianetPaymentModuleFrontController extends ModuleFrontController
 			'this_path' => $this->module->getPathUri(),
 			'this_path_bw' => $this->module->getPathUri(),
 			'width_center_column' => '100%',
+			'payee_code' => Configuration::get('GERENCIANET_PAYEE_CODE'),
 			'sandbox' => Configuration::get('GERENCIANET_SANDBOX'),
 			'billet_option' => Configuration::get('GERENCIANET_PAYMENT_OPTION_BILLET'),
 			'card_option' => Configuration::get('GERENCIANET_PAYMENT_OPTION_CARD'),
