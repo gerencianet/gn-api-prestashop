@@ -257,10 +257,10 @@ class GerencianetIntegration {
 		$options = GerencianetIntegration::get_gn_api_credentials();
 		$params = array ('id' => $charge_id);
 		
-		$body = [
+		$body = array (
 			'custom_id' => (string)$reference,
 			'notification_url' => (string)$notification_url,
-		];
+		);
 
 		try {
 		    $api = new Gerencianet($options);
