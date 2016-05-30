@@ -162,7 +162,7 @@ switch ($action) {
 	    $post_phone_number = Tools::getValue('phone_number', NULL);
 	    $post_charge_id = Tools::getValue('charge_id', NULL);
 
-	    if ($post_pay_billet_with_cnpj && $post_corporate_name && $post_cnpj) {
+	    if ($post_pay_billet_with_cnpj=="1") {
 			$juridical_data = array (
 			  'corporate_name' => $post_corporate_name,
 			  'cnpj' => $post_cnpj
@@ -262,7 +262,7 @@ switch ($action) {
 	    $post_installments = Tools::getValue('installments', NULL);
 	    $post_charge_id = Tools::getValue('charge_id', NULL);
 
-	    if (isset($post_pay_card_with_cnpj) && isset($post_corporate_name) && isset($post_cnpj)) {
+	    if ($post_pay_card_with_cnpj=="1") {
 			$juridical_data = array (
 			  'corporate_name' => $post_corporate_name,
 			  'cnpj' => $post_cnpj

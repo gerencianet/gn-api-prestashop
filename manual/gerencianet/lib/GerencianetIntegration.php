@@ -477,6 +477,9 @@ class GerencianetIntegration {
 			case "name":
 				return 'Nome';
 				break;
+			case "corporate_name":
+				return "Razão Social";
+				break;
 			case "cpf":
 				return 'CPF';
 				break;
@@ -486,8 +489,8 @@ class GerencianetIntegration {
 			case "email":
 				return 'Email';
 				break;
-			case "cpf":
-				return 'CPF';
+			case "cnpj":
+				return 'CNPJ';
 				break;
 			case "birth":
 				return 'Data de nascimento';

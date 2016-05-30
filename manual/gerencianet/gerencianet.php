@@ -45,7 +45,7 @@ class Gerencianet extends PaymentModule
 	{
 		$this->name = 'gerencianet';
 		$this->tab = 'payments_gateways';
-		$this->version = '0.1.1';
+		$this->version = '0.2.0';
 		$this->author = 'Gerencianet';
 		$this->controllers = array('payment', 'validation');
 		$this->is_eu_compatible = 1;
@@ -96,6 +96,7 @@ class Gerencianet extends PaymentModule
 		|| !Configuration::deleteByName('GERENCIANET_CLIENT_SECRET_DEV')
 		|| !Configuration::deleteByName('GERENCIANET_PAYEE_CODE')
 		|| !Configuration::deleteByName('GERENCIANET_DEBUG')
+		|| !Configuration::deleteByName('GERENCIANET_CHECKOUT_TYPE')
 		|| !parent::uninstall())
 			return false;
 
@@ -112,7 +113,8 @@ class Gerencianet extends PaymentModule
 		Configuration::updateValue('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE', "1");
 		Configuration::updateValue('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE_NOTIFY', "1");
 		Configuration::updateValue('GERENCIANET_STATUS', "0");
-		Configuration::updateValue('GERENCIANET_DEBUG', "0");		
+		Configuration::updateValue('GERENCIANET_DEBUG', "0");	
+		Configuration::updateValue('GERENCIANET_CHECKOUT_TYPE', "0");		
 	}
 
 	private function generateGerencianetOrderStatus()
@@ -351,6 +353,7 @@ class Gerencianet extends PaymentModule
             $gerencianet_client_secret_development = Tools::getValue('gerencianet_client_secret_development');
             $gerencianet_payee_code = Tools::getValue('gerencianet_payee_code');
             $gerencianet_debug = Tools::getValue('gerencianet_debug');
+            $gerencianet_checkout_type = Tools::getValue('gerencianet_checkout_type');
 
             if (!$gerencianet_client_id_production || !$gerencianet_client_secret_production || !$gerencianet_client_id_development || !$gerencianet_client_secret_development) {
                 $this->_postErrors[] = $this->l('Módulo inativo: Credenciais inválidas. Digite novamente.');
@@ -379,6 +382,7 @@ class Gerencianet extends PaymentModule
 			Configuration::updateValue('GERENCIANET_CLIENT_SECRET_DEV', Tools::getValue('gerencianet_client_secret_development'));
 			Configuration::updateValue('GERENCIANET_PAYEE_CODE', Tools::getValue('gerencianet_payee_code'));
 			Configuration::updateValue('GERENCIANET_DEBUG', Tools::getValue('gerencianet_debug'));
+			Configuration::updateValue('GERENCIANET_CHECKOUT_TYPE', Tools::getValue('gerencianet_checkout_type'));
 		}
 		$this->_html .= $this->displayConfirmation($this->l('Settings updated'));
 	}
@@ -412,16 +416,131 @@ class Gerencianet extends PaymentModule
 
 	public function hookPayment($params)
 	{
-		if (!$this->active)
-			return;
-		if (!$this->checkCurrency($params['cart']))
-			return;
+		$checkout_type = Configuration::get('GERENCIANET_CHECKOUT_TYPE');
+		if ($checkout_type=="1") {
+			$checkout_type_selected = "OSC";
+		} else {
+			$checkout_type_selected = "default";
+		}
 
-		$this->smarty->assign(array(
-			'this_path' => $this->_path,
-			'this_path_bw' => $this->_path,
-			'this_path_ssl' => Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/'.$this->name.'/'
-		));
+		if ($checkout_type_selected=="OSC") {
+			$cart = $this->context->cart;
+			$customer_fields = $this->context->customer->getFields();
+
+			if (!$this->active)
+				return;
+			if (!$this->checkCurrency($params['cart']))
+				return;
+
+			$billet_discount = floatval(preg_replace( '/[^0-9.]/', '', str_replace(",",".",Configuration::get('GERENCIANET_DISCOUNT_BILLET_VALUE'))));
+	    	$billet_discount_formatted = str_replace(".",",",$billet_discount);
+
+	    	$total_order_gn_formatted = GerencianetIntegration::priceFormat($cart->getOrderTotal(true));
+	    	$total_order_pay_with_billet_gn_formatted = (int) ($total_order_gn_formatted * (1-($billet_discount/100)));
+	    	$total_discount = $total_order_gn_formatted - $total_order_pay_with_billet_gn_formatted;
+	    	$total_discount_formatted = GerencianetIntegration::formatCurrencyBRL($total_discount);
+
+	    	$actual_year = intval(date("Y")); 
+	        $last_year = $actual_year + 15;
+	        $list_years = "";
+	        for ($i = $actual_year; $i <= $last_year; $i++) {
+	            $list_years .= '<option value="'.$i.'"> '.$i.' </option>';
+	        }
+
+	        $address_invoice = new Address((Integer)$cart->id_address_invoice);
+
+	        if (isset($customer_fields['document'])) {
+				$cpf = $customer_fields['document'];
+			} else if (isset($customer_fields['cpf'])) {
+				$cpf = $customer_fields['cpf'];
+			} else {
+				$cpf = "";
+			}
+
+			if (isset($customer_fields['birthday'])) {
+				$birthdate_formatted = explode("-",$customer_fields['birthday']);
+				$birthdate = $birthdate_formatted[2]."/".$birthdate_formatted[1]."/".$birthdate_formatted[0];
+				if (strlen($birthdate)!=10) {
+					$birthdate = "";
+				}
+			} else {
+				$birthdate = "";
+			}
+
+			if (isset($address_invoice->id_state)) {
+	    		$billing_state = State::getNameById($address_invoice->id_state);
+	    	} else {
+				$billing_state = "";
+	    	}
+
+	    	if (isset($address_invoice->address3)) {
+	    		$billing_complement = $address_invoice->address3;
+	    	} else {
+				$billing_complement = "";
+	    	}
+
+	    	if (isset($address_invoice->address4)) {
+	    		$billing_number = $address_invoice->address4;
+	    	} else {
+				$billing_number = "";
+	    	}
+
+			if( isset($_SERVER['HTTPS'] ) ) {
+	    		$base_url_dir = Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/gerencianet/';
+	    	} else {
+	    		$base_url_dir = Tools::getShopDomain(true, true).__PS_BASE_URI__.'modules/gerencianet/';
+	    	}
+
+	    	$gnIntegration = new GerencianetIntegration(Configuration::get('GERENCIANET_CLIENT_ID_PROD'),Configuration::get('GERENCIANET_CLIENT_SECRET_PROD'),Configuration::get('GERENCIANET_CLIENT_ID_DEV'),Configuration::get('GERENCIANET_CLIENT_SECRET_DEV'),Configuration::get('GERENCIANET_SANDBOX'),Configuration::get('GERENCIANET_PAYEE_CODE'));
+
+	    	$max_installments = $gnIntegration->max_installments($total_order_gn_formatted);
+
+
+			$this->smarty->assign(array(
+				'checkout_type' => 'OSC',
+				'base_url_dir' => $base_url_dir,
+				'total' => $cart->getOrderTotal(true, Cart::BOTH),
+				'this_path' => $this->_path,
+				'this_path_bw' => $this->_path,
+				'this_path_ssl' => Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/'.$this->name.'/',
+				'width_center_column' => '100%',
+				'payee_code' => Configuration::get('GERENCIANET_PAYEE_CODE'),
+				'sandbox' => Configuration::get('GERENCIANET_SANDBOX'),
+				'billet_option' => Configuration::get('GERENCIANET_PAYMENT_OPTION_BILLET'),
+				'card_option' => Configuration::get('GERENCIANET_PAYMENT_OPTION_CARD'),
+				'order_total_card' => $total_order_gn_formatted,
+				'order_total_billet' => $total_order_pay_with_billet_gn_formatted,
+				'discount' => $billet_discount,
+				'discount_value_formatted' => $total_discount_formatted,
+				'totalValueFormatted' => $total_order_gn_formatted,
+				'discountFormatted' => $billet_discount_formatted,
+				'order_with_billet_discount' => GerencianetIntegration::formatCurrencyBRL($total_order_pay_with_billet_gn_formatted),
+				'order_total_card_formatted' => GerencianetIntegration::formatCurrencyBRL($total_order_gn_formatted),
+				'list_years' => $list_years,
+				'billing_cnpj' => "",
+				'billing_name' => $customer_fields['firstname'] . " " . $customer_fields['lastname'],
+				'billing_company' => "",
+				'billing_email' => $customer_fields['email'],
+				'billing_cpf' => $cpf,
+				'billing_phone' => $address_invoice->phone,
+				'billing_birthdate' => $birthdate,
+				'max_installments' => $max_installments,
+				'billing_address_1' => $address_invoice->address1,
+				'billing_number' => $billing_number,
+				'billing_neighborhood' => $address_invoice->address2,
+				'billing_complement' => $billing_complement,
+				'billing_city' => $address_invoice->city,
+				'billing_postcode' => $address_invoice->postcode,
+				'billing_state' => $billing_state,
+			));
+		} else {
+
+			$this->smarty->assign(array(
+				'checkout_type' => 'default',
+				'this_path' => $this->_path,
+				'this_path_bw' => $this->_path,
+			));
+		}
 		return $this->display(__FILE__, 'payment.tpl');
 	}
 
@@ -492,6 +611,7 @@ class Gerencianet extends PaymentModule
 		$this->context->smarty->assign('gerencianet_sandbox', Configuration::get('GERENCIANET_SANDBOX'));
 		$this->context->smarty->assign('gerencianet_payment_option_billet', Configuration::get('GERENCIANET_PAYMENT_OPTION_BILLET'));
 		$this->context->smarty->assign('gerencianet_payment_option_card', Configuration::get('GERENCIANET_PAYMENT_OPTION_CARD'));
+		$this->context->smarty->assign('gerencianet_checkout_type', Configuration::get('GERENCIANET_CHECKOUT_TYPE'));
 		$this->context->smarty->assign('gerencianet_billet_days_to_expire', Configuration::get('GERENCIANET_BILLET_DAYS_TO_EXPIRE'));
 		$this->context->smarty->assign('gerencianet_discount_billet_value', Configuration::get('GERENCIANET_DISCOUNT_BILLET_VALUE'));
 		$this->context->smarty->assign('gerencianet_payment_notification_update', Configuration::get('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE'));
@@ -525,6 +645,7 @@ class Gerencianet extends PaymentModule
 			'GERENCIANET_CLIENT_SECRET_DEV' => Tools::getValue('GERENCIANET_CLIENT_SECRET_DEV', Configuration::get('GERENCIANET_CLIENT_SECRET_DEV')),
 			'GERENCIANET_PAYEE_CODE' => Tools::getValue('GERENCIANET_PAYEE_CODE', Configuration::get('GERENCIANET_PAYEE_CODE')),
 			'GERENCIANET_DEBUG' => Tools::getValue('GERENCIANET_DEBUG', Configuration::get('GERENCIANET_DEBUG')),
+			'GERENCIANET_CHECKOUT_TYPE' => Tools::getValue('GERENCIANET_CHECKOUT_TYPE', Configuration::get('GERENCIANET_CHECKOUT_TYPE')),
 		);
 	}
 

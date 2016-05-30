@@ -268,6 +268,14 @@ jQuery(document).ready(function($){
 
     function payBilletCharge() {
         $('.gn-loading-request').fadeIn();
+
+        var juridical;
+        if($('#pay_billet_with_cnpj').attr('checked')) {
+            juridical="1";
+        } else {
+            juridical="0";
+        }
+
         var data = {
             action: "pay_billet",
             charge_id: id_charge,
@@ -277,7 +285,7 @@ jQuery(document).ready(function($){
             phone_number: jQuery('#phone_number').val().replace(/[^\d]+/g,''),
             cnpj: jQuery('#cnpj').val().replace(/[^\d]+/g,''),
             corporate_name: jQuery('#corporate_name').val(),
-            pay_billet_with_cnpj: jQuery('#pay_billet_with_cnpj').val()
+            pay_billet_with_cnpj: juridical
         };
         
         jQuery.ajax({
@@ -412,6 +420,13 @@ jQuery(document).ready(function($){
           } else {
             var dateBirth = $('#input-payment-card-birth').val().split("/");
 
+            var juridical;
+            if($('#pay_card_with_cnpj').attr('checked')) {
+                juridical="1";
+            } else {
+                juridical="0";
+            }
+
             var data = {
                 action: "pay_card",
                 charge_id: id_charge,
@@ -420,7 +435,7 @@ jQuery(document).ready(function($){
                 phone_number: jQuery('#input-payment-card-phone').val().replace(/[^\d]+/g,''),
                 cnpj: jQuery('#cnpj_card').val().replace(/[^\d]+/g,''),
                 corporate_name: jQuery('#corporate_name_cnpj').val(),
-                pay_card_with_cnpj: jQuery('#pay_card_with_cnpj').val(),
+                pay_card_with_cnpj: juridical,
                 payment_token: response.data.payment_token,
                 birth: dateBirth[2] + "-" + dateBirth[1] + "-" + dateBirth[0],
                 email: $('#input-payment-card-email').val(),

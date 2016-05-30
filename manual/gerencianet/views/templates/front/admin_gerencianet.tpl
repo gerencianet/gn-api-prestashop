@@ -110,6 +110,23 @@ if(!window.jQuery)
                 </div>
               </div>
 
+              <div class="gn-divisor"></div>
+
+              <div class="form-group">
+              <div class="col-sm-3">
+              <label class="control-label pull-right" for="gerencianet_checkout_type">Pagamento em um passo:<br>
+              (esta funcionalidade pode não ser compatível com todas as lojas)</label>
+              </div>
+                <div class="col-sm-9">
+                  <div class="pull-left gn-admin-item-form">
+                    <input type="checkbox" name="gerencianet_checkout_type" value="1" {if $gerencianet_checkout_type=="1"} checked {/if}>
+                  </div>
+                  <div class="pull-left gn-admin-item-left">
+                    Habilitar pagamento em um passo
+                  </div>
+                </div>
+              </div>
+
               <div class="form-group gn-admin-detail-config">
                 <div class="col-sm-3 control-label"></div>
                 <div class="col-sm-9 gn-admin-detail-background">
