@@ -884,7 +884,7 @@ jQuery(document).ready(function($){
         jQuery("#brand-" + this.value).addClass("gn-card-brand-checked");
     });
 
-    jQuery('#gn-billet-payment-option').click(function(e){
+    jQuery('#gn-billet-payment-option-selector').click(function(e){
         $('#collapse-payment-card').hide();
         $('#collapse-payment-billet').slideDown();
         $('#paymentMethodBilletRadio').prop('checked', true);
@@ -895,9 +895,10 @@ jQuery(document).ready(function($){
         $("#gn-billet-payment-option").addClass('gn-osc-payment-option-selected');
         $("#gn-card-payment-option").removeClass('gn-osc-payment-option-selected');
         $("#gn-card-payment-option").addClass('gn-osc-payment-option-unselected');
+        hideError();
     });
 
-    jQuery('#gn-card-payment-option').click(function(e){
+    jQuery('#gn-card-payment-option-selector').click(function(e){
         $('#collapse-payment-card').slideDown();
         $('#collapse-payment-billet').hide();
         $('#paymentMethodBilletRadio').prop('checked', false);
@@ -908,6 +909,7 @@ jQuery(document).ready(function($){
         $("#gn-billet-payment-option").addClass('gn-osc-payment-option-unselected');
         $("#gn-card-payment-option").removeClass('gn-osc-payment-option-unselected');
         $("#gn-card-payment-option").addClass('gn-osc-payment-option-selected');
+        hideError();
     });
 
     if(jQuery.mask) {

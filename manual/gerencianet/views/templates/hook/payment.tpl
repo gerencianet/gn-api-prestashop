@@ -78,25 +78,20 @@
   {/if}
 </script>
 
+
+{if $billet_option & $order_total_billet>=500}
+
+
 <p class="payment_module">
 
 <div class="gn-osc-payment_module">
 
 <div id="gerencianet-container">
     
-  	<div class="gn-alert{if $order_total_card>=500 || $order_total_billet>500} gn-hide {/if}" id="wc-gerencianet-messages">
-        {if $card_option && $order_total_card<500 && $billet_option && $order_total_billet<500}
-            O valor mínimo para pagar através da gerencianet é de R$5,00
-        {/if}
-    </div>
-
-    
-
-    <div style="margin: 0px;">
+    <div style="margin: 0px;" id="gn-billet-payment-option-selector">
         <div class="gn-osc-logo">
         <img src="{$this_path_bw}assets/images/gerencianet-configurations.png" />
         </div>
-        {if $billet_option & $order_total_billet>=500}
         <div id="gn-billet-payment-option" class="gn-osc-payment-option gn-osc-payment-option-unselected">
             <div>
                 <div id="billet-radio-button" class="gn-osc-left">
@@ -115,29 +110,8 @@
                 <div class="clear"></div>
             </div>
         </div>
-        {/if}
-        {if $card_option & $order_total_card >= 500 }
-        <div id="gn-card-payment-option" class="gn-osc-payment-option gn-osc-payment-option-unselected">
-            <div>
-                <div id="card-radio-button" class="gn-osc-left">
-                    <input type="radio" name="paymentMethodRadio" id="paymentMethodCardRadio" class="gn-osc-radio" value="card" />
-                </div>
-                <div class="gn-osc-left gn-osc-icon-gerencianet">
-                    <span class="gn-icon-credit-card2"></span>
-                </div>
-                <div class="gn-osc-left gn-osc-payment-option-gerencianet">
-                    <strong>{l s='Pagar com Cartão de Crédito' mod='gerencianet'}</strong>
-                    <span style="font-size: 14px; line-height: 15px;"><br>em até {$max_installments}</span>
-                </div>
-                <div class="gn-osc-left gn-osc-payment-option-sizer"></div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        {/if}
         <div class="clear"></div>
     </div>
-    {if $billet_option & $order_total_billet>=500}
-
     <div id="collapse-payment-billet" class="gn-osc-background gn-hide" >
       {if $sandbox}
       <div class="gn-warning" id="wc-gerencianet-messages-sandbox">
@@ -146,7 +120,7 @@
       {/if}
       <div class="gn-alert gn-osc-warning-payment gerencianet-messages gn-hide"></div>
 
-      <div class="panel-body">
+      <div class="gn-panel-body">
          <form class="form-horizontal" id="billet-form" name="billet-form" action="{$link->getModuleLink('gerencianet', 'validation', [], true)|escape:'html'}" method="post">
          <input name="gn_charge_id" id="gn_charge_id_billet" type="hidden" value=""/>
           <div class="gn-osc-row gn-osc-pay-comments">
@@ -234,7 +208,7 @@
             </form>
         </div>
 
-        <div class="gn-osc-row" style="padding: 20px;">
+        <div class="gn-osc-row" style="padding: 5px 20px;">
             {if $discount>0 }
             <div class="gn-osc-row gn-osc-subtotal" style="margin-bottom: 0px;">
                 <div style="float: left;">
@@ -272,8 +246,47 @@
         </div>
       </div>
 
-    {/if}
-    {if $card_option}
+
+</div>
+
+  </div>
+</p>
+
+ {/if}
+    
+
+{if $card_option & $order_total_card >= 500 }
+
+<p class="payment_module">
+
+<div class="gn-osc-payment_module">
+
+<div id="gerencianet-container">
+
+    <div style="margin: 0px;" id="gn-card-payment-option-selector">
+        <div class="gn-osc-logo">
+        <img src="{$this_path_bw}assets/images/gerencianet-configurations.png" />
+        </div>
+        
+        <div id="gn-card-payment-option" class="gn-osc-payment-option gn-osc-payment-option-unselected">
+            <div>
+                <div id="card-radio-button" class="gn-osc-left">
+                    <input type="radio" name="paymentMethodRadio" id="paymentMethodCardRadio" class="gn-osc-radio" value="card" />
+                </div>
+                <div class="gn-osc-left gn-osc-icon-gerencianet">
+                    <span class="gn-icon-credit-card2"></span>
+                </div>
+                <div class="gn-osc-left gn-osc-payment-option-gerencianet">
+                    <strong>{l s='Pagar com Cartão de Crédito' mod='gerencianet'}</strong>
+                    <span style="font-size: 14px; line-height: 15px;"><br>em até {$max_installments}</span>
+                </div>
+                <div class="gn-osc-left gn-osc-payment-option-sizer"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
       <div id="collapse-payment-card"  class="panel-collapse gn-hide gn-osc-background" >
         {if $sandbox}
         <div class="gn-warning" id="wc-gerencianet-messages-sandbox">
@@ -281,16 +294,14 @@
         </div>
         {/if}
         <div class="gn-alert gn-osc-warning-payment gerencianet-messages gn-hide"></div>
-        <div class="panel-body">
+        <div class="gn-panel-body">
             <form class="form-horizontal" id="card-form" name="card-form" action="{$link->getModuleLink('gerencianet', 'validation', [], true)|escape:'html'}" method="post">
              <input name="gn_charge_id" id="gn_charge_id_card" type="hidden" value=""/>
                 <div class="gn-osc-row gn-osc-pay-comments">
                    <p class="gn-left-space-2"><strong>{l s='Optando pelo pagamento com cartão de crédito, o pagamento é processado e a confirmação ocorrerá em até 48 horas.' mod='gerencianet'}</strong></p>
                 </div>
-
                 <div class="gn-form">
                 <div id="card-data" >
-                    <div class="gn-initial-section">
                         <div style="background-color: #F3F3F3; border: 1px solid #F3F3F3;">
                         <div class="gn-osc-row">
                           <div class="gn-col-12 gn-cnpj-row">
@@ -368,12 +379,11 @@
                             <input type="text" name="gn_card_email" value="{$billing_email}" id="gn_card_email" class="form-control" />
                           </div>
                         </div>
-                    </div>
 
                     <div id="billing-adress" class="gn-section">
                         <div class="gn-osc-row gn-card-field">
                             <p>
-                            <strong>{l s='Endereço da Cobrança' mod='gerencianet'}</strong>
+                            <strong>{l s='ENDEREÇO DE COBRANÇA' mod='gerencianet'}</strong>
                             </p>
                         </div>
 
@@ -480,9 +490,7 @@
                     </div>
                     <div class="clear"></div>
 
-                    <div class="gn-section">
-                        <p><strong>{l s='Dados de pagamento' mod='gerencianet'}</strong></p>
-
+                    <div class="gn-section" style="background-color: #F0F0F0; padding: 10px;">
                         <div class="required gn-osc-row">
                             <div>
                             <label class="" for="gn_card_brand">{l s='Selecione a bandeira do cartão' mod='gerencianet'}</label>
@@ -552,7 +560,7 @@
                                             <div class="gn-cvv-info">
                                                 <div class="pull-left gn-icon-card-input">
                                                 </div>
-                                                <div class="pull-left">
+                                                <div class="pull-left" style="width:110px;">
                                                     {l s='São os três últimos dígitos no verso do cartão.' mod='gerencianet'}
                                                 </div>
                                                 <div class="clear"></div>
@@ -618,7 +626,7 @@
               </div>
 
             </div>
-            <div class="gn-osc-row" style="padding: 20px;">
+            <div class="gn-osc-row" style="padding: 5px 20px;">
                 <div class="gn-osc-row" style="border: 1px solid #DEDEDE; margin: 0px; padding:5px;">
                     <div style="float: left;">
                         <strong>TOTAL:</strong>
@@ -649,13 +657,13 @@
         
 
       </div>
-      {/if}
+     
 
 </div>
 
-	</div>
+  </div>
 </p>
-
+ {/if}
 
 <link rel="stylesheet" type="text/css" media="screen" href="{$this_path_bw}assets/css/checkout-osc.css" />
 

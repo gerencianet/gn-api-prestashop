@@ -412,7 +412,7 @@
 }
 
 .gn-cvv-row {
-    width: 80px;
+    width: 60px;
     margin-right: 15px; 
     margin-bottom: 3px;
 }
@@ -608,13 +608,12 @@
 }
 
 .gn-osc-payment-option {
-    background-color: #FFF; 
+    background-color: #FFFFFF; 
     float: left;
     padding: 10px 15px;
     cursor: pointer;
     margin-left: 30px;
-    border-radius: 10px;
-    border: 1px solid #E0E0E0;
+    border: none;
 }
 
 .gn-osc-payment-option-selected {
@@ -624,7 +623,7 @@
 
 .gn-osc-payment-option-unselected {
     border-bottom: 0px;
-    background-color: #F0F0F0;
+    background-color: #FFFFFF;
 }
 
 
@@ -665,10 +664,9 @@
 
 .gn-osc-background {
     background-color: #FFFFFF; 
-    margin-top: 10px; 
-    padding: 10px; 
-    border: 3px solid #E0E0E0;
-    border-radius: 15px;
+    margin-top: 0px; 
+    padding: 0px; 
+    border: none;
 }
 
 .gn-osc-radio {
@@ -733,6 +731,8 @@
 .gn-osc-payment_module {
     margin-bottom: 10px; 
     display: block;
+    width: 50%;
+    min-width: 550px;
     border: 1px solid #d6d4d4;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -788,12 +788,21 @@
     font-size: 16px;
 }
 
+.gn-panel-body {
+    padding: 3px;
+}
+
 @media only screen and (max-width: 992px) {
 
     .gn-row-left, .gn-row-right {
         display: block;
         width: 100%;
     }
+
+    .gn-osc-payment_module {
+        width: 100%;
+    }
+
     .gn-left{
         float: left;
         display: inline-block;
@@ -824,17 +833,6 @@
         display: none;
     }
 
-    .gn-osc-payment-option {
-        float: none;
-        display: block;
-        margin-left: 0px;
-        margin-bottom: 15px;
-    }
-
-    .gn-osc-logo {
-        float: none;
-        display: block;
-    }
 
     .gn-osc-pay-comments {
         padding-top: 0px;
@@ -845,7 +843,24 @@
 
 }
 
+@media only screen and (max-width: 550px) {
+    .gn-osc-payment-option {
+        float: none;
+        display: block;
+        margin-left: 0px;
+        margin-bottom: 15px;
+    }
+    .gn-osc-logo {
+        float: none;
+        display: block;
+    }
 
+    .gn-osc-payment_module {
+        min-width: auto;
+        width: 100%;
+    }
+
+}
 
 /** Key Frames **/
 
