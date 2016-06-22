@@ -437,7 +437,7 @@ jQuery(document).ready(function($){
             hideError();
         } else {
             $('#gn_billet_phone_number').addClass("gn-inputs-error");
-            showError("CPF inválido. Por favor, digite novamente.");
+            showError("Telefone inválido. Por favor, digite novamente.");
         }
     });
 

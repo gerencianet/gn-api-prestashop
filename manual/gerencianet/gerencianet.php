@@ -45,7 +45,7 @@ class Gerencianet extends PaymentModule
 	{
 		$this->name = 'gerencianet';
 		$this->tab = 'payments_gateways';
-		$this->version = '0.2.0';
+		$this->version = '0.2.1';
 		$this->author = 'Gerencianet';
 		$this->controllers = array('payment', 'validation');
 		$this->is_eu_compatible = 1;
@@ -489,6 +489,10 @@ class Gerencianet extends PaymentModule
 	    		$base_url_dir = Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/gerencianet/';
 	    	} else {
 	    		$base_url_dir = Tools::getShopDomain(true, true).__PS_BASE_URI__.'modules/gerencianet/';
+	    	}
+
+	    	if (Configuration::get('PS_SSL_ENABLED') || (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off')) {
+	    		$base_url_dir = str_replace("http://","https://",$base_url_dir);
 	    	}
 
 	    	$gnIntegration = new GerencianetIntegration(Configuration::get('GERENCIANET_CLIENT_ID_PROD'),Configuration::get('GERENCIANET_CLIENT_SECRET_PROD'),Configuration::get('GERENCIANET_CLIENT_ID_DEV'),Configuration::get('GERENCIANET_CLIENT_SECRET_DEV'),Configuration::get('GERENCIANET_SANDBOX'),Configuration::get('GERENCIANET_PAYEE_CODE'));

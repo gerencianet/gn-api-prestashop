@@ -1,3 +1,7 @@
+# v0.2.1
+
+* Fix: SSL em requisições ajax
+
 # v0.2.0
 
 * Adicionado: Opção de pagamento em um passo.

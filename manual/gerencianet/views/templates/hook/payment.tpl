@@ -234,7 +234,7 @@
                 <div class="pull-right gn-loading-request">
                     <div class="gn-loading-request-row">
                       <div class="pull-left gn-loading-request-text">
-                        Carregando, aguarde...
+                        Autorizando, aguarde...
                       </div>
                       <div class="pull-left gn-icons">
                         <div class="spin gn-loading-request-spin-box icon-gerencianet"><div class="gn-icon-spinner6 gn-loading-request-spin-icon"></div></div>
@@ -247,12 +247,12 @@
       </div>
 
 
-</div>
+    </div>
 
   </div>
 </p>
 
- {/if}
+{/if}
     
 
 {if $card_option & $order_total_card >= 500 }
@@ -643,7 +643,7 @@
                 <div class="pull-right gn-loading-request">
                     <div class="gn-loading-request-row">
                       <div class="pull-left gn-loading-request-text">
-                        Carregando, aguarde...
+                        Autorizando, aguarde...
                       </div>
                       <div class="pull-left gn-icons">
                         <div class="spin gn-loading-request-spin-box icon-gerencianet"><div class="gn-icon-spinner6 gn-loading-request-spin-icon"></div></div>

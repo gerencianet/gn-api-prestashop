@@ -113,6 +113,10 @@ class GerencianetPaymentModuleFrontController extends ModuleFrontController
     		$base_url_dir = Tools::getShopDomain(true, true).__PS_BASE_URI__.'modules/'.$this->module->name.'/';
     	}
 
+    	if (Configuration::get('PS_SSL_ENABLED') || (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off')) {
+    		$base_url_dir = str_replace("http://","https://",$base_url_dir);
+    	}
+
 		$this->context->smarty->assign(array(
 			'base_url_dir' => $base_url_dir,
 			'nbProducts' => $cart->nbProducts(),
