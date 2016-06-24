@@ -24,7 +24,7 @@
  *  International Registered Trademark & Property of PrestaShop SA
  */
 
-class Util
+class GerencianetUtil
 {
 
     private static $order_status = array(

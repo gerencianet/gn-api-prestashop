@@ -25,7 +25,7 @@
 
 include_once dirname(__FILE__) . '/../../lib/GerencianetIntegration.php';
 include_once dirname(__FILE__) . '/../../lib/dbGerencianetPrestaShop.php';
-include_once dirname(__FILE__) . '/../../lib/util.php';
+include_once dirname(__FILE__) . '/../../lib/GerencianetUtil.php';
 
 class GerencianetNotificationModuleFrontController extends ModuleFrontController {
 	public function initContent()

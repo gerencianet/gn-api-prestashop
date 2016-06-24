@@ -26,7 +26,7 @@
 
 include_once dirname(__FILE__) . '/lib/GerencianetIntegration.php';
 include_once dirname(__FILE__) . '/lib/dbGerencianetPrestaShop.php';
-include_once dirname(__FILE__) . '/lib/util.php';
+include_once dirname(__FILE__) . '/lib/GerencianetUtil.php';
 
 if (!defined('_PS_VERSION_'))
 	exit;
@@ -123,7 +123,7 @@ class Gerencianet extends PaymentModule
         $name_state = null;
         $image = _PS_ROOT_DIR_ . '/modules/gerencianet/logo.gif';
         
-        foreach (Util::getCustomOrderStatusGerencianet() as $key => $statusGerencianet) {
+        foreach (GerencianetUtil::getCustomOrderStatusGerencianet() as $key => $statusGerencianet) {
 
             $order_state = new OrderState();
             $order_state->module_name = 'gerencianet';
