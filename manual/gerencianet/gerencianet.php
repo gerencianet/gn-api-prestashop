@@ -612,6 +612,7 @@ class Gerencianet extends PaymentModule
 		}
 
 		$this->context->smarty->assign('module_dir', _PS_MODULE_DIR_ . 'gerencianet/');
+		$this->context->smarty->assign('action_post', Tools::htmlentitiesUTF8($_SERVER['REQUEST_URI']));
 		$this->context->smarty->assign('gerencianet_sandbox', Configuration::get('GERENCIANET_SANDBOX'));
 		$this->context->smarty->assign('gerencianet_payment_option_billet', Configuration::get('GERENCIANET_PAYMENT_OPTION_BILLET'));
 		$this->context->smarty->assign('gerencianet_payment_option_card', Configuration::get('GERENCIANET_PAYMENT_OPTION_CARD'));
