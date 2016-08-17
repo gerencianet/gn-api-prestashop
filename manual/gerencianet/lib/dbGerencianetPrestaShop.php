@@ -106,6 +106,17 @@ class dbGerencianetPrestaShop
         
     }
 
+    public function updatePaymentTitle($id_order,$newTitle)
+    {
+        
+        $sql = 'UPDATE `' . _DB_PREFIX_ . 'orders` SET `payment` = \'' . pSQL($newTitle). '\' WHERE `id_order` = \'' . pSQL($id_order) . '\';';
+
+        if (! Db::getInstance(_PS_USE_SQL_SLAVE_)->Execute($sql)) {
+            die(Tools::displayError('Error when updating gerencianet status in database'));
+        }
+        
+    }
+
     public function createBilletTempDiscount($id_customer_charge, $discount, $percent) {
         $cart_rule = new CartRule();
         $languages = Language::getLanguages();

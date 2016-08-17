@@ -45,7 +45,7 @@ class Gerencianet extends PaymentModule
 	{
 		$this->name = 'gerencianet';
 		$this->tab = 'payments_gateways';
-		$this->version = '0.2.1';
+		$this->version = '0.2.2';
 		$this->author = 'Gerencianet';
 		$this->controllers = array('payment', 'validation');
 		$this->is_eu_compatible = 1;

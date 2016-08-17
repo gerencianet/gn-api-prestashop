@@ -432,6 +432,9 @@ class GerencianetIntegration {
 			case 4600219:
 				$message = 'Ocorreu um erro ao validar seus dados: ' . $property;
 				break;
+			case 4600222:
+				$message = 'Recebedor e cliente não podem ser a mesma pessoa.';
+				break;
 			case 4600224:
 				$message = $messageErrorDefault;
 				break;

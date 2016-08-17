@@ -1,3 +1,7 @@
+# v0.2.2
+
+* Fix: Email com link di Boleto e link do Boleto no histórico.
+
 # v0.2.1
 
 * Fix: SSL em requisições ajax

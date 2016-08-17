@@ -72,6 +72,7 @@ class GerencianetValidationModuleFrontController extends ModuleFrontController
 
 		if ($charge_type=="billet") {
 			$payment_title = "Boleto Bancário - Gerencianet";
+			$payment_title_full = "Boleto Bancário Gerencianet - Link do boleto: " . dbGerencianetPrestaShop::getChargeDataByIdCharge(Tools::getValue('gn_charge_id'));
 			$payment_billet_comment = dbGerencianetPrestaShop::getChargeDataByIdCharge(Tools::getValue('gn_charge_id'));
 			$payment_card_comment = "";
 			$payment_comment_title = "Link do Boleto: ";
@@ -79,6 +80,7 @@ class GerencianetValidationModuleFrontController extends ModuleFrontController
 			$billet_link_text = "Visualizar Boleto";
 		} else {
 			$payment_title = "Cartão de Crédito - Gerencianet";
+			$payment_title_full = "Cartão de Crédito - Gerencianet";
 			$payment_billet_comment = "";
 			$payment_card_comment = dbGerencianetPrestaShop::getChargeDataByIdCharge(Tools::getValue('gn_charge_id'));
 			$payment_comment_title = "Opção de parcelamento: ";
@@ -113,6 +115,7 @@ class GerencianetValidationModuleFrontController extends ModuleFrontController
 		$gnIntegration = new GerencianetIntegration(Configuration::get('GERENCIANET_CLIENT_ID_PROD'),Configuration::get('GERENCIANET_CLIENT_SECRET_PROD'),Configuration::get('GERENCIANET_CLIENT_ID_DEV'),Configuration::get('GERENCIANET_CLIENT_SECRET_DEV'),Configuration::get('GERENCIANET_SANDBOX'),Configuration::get('GERENCIANET_PAYEE_CODE'));
 		$gnIntegration->update_meta(Tools::getValue('gn_charge_id'), $this->module->currentOrder, $notificationURL);
 
+		dbGerencianetPrestaShop::updatePaymentTitle($this->module->currentOrder,$payment_title_full);
 
 		Tools::redirect('index.php?controller=order-confirmation&id_cart='.$cart->id.'&id_module='.$this->module->id.'&id_order='.$this->module->currentOrder.'&key='.$customer->secure_key.'&charge_id='.Tools::getValue('gn_charge_id').'&charge_type='.$charge_type);
 	}
