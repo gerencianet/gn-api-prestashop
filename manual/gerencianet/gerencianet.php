@@ -63,9 +63,11 @@ class Gerencianet extends PaymentModule
 
 	public function install()
 	{
-		if (!parent::install() || !$this->registerHook('payment') || ! $this->registerHook('displayPaymentEU') || !$this->registerHook('paymentReturn')) {
+		if (!parent::install() || !$this->registerHook('payment') || ! $this->registerHook('displayPaymentEU') || !$this->registerHook('paymentReturn') || !$this->registerHook('adminOrder')) {
 			return false;
 		}
+
+		$this->setGerencianetDefaultValues();
 
 		if (! $this->generateGerencianetOrderStatus()) {
             return false;
@@ -589,6 +591,37 @@ class Gerencianet extends PaymentModule
 
 		return $this->display(__FILE__, 'payment_return.tpl');
 	}
+
+    public function hookAdminOrder($params)
+    {
+        if(!$this->active)
+            return;
+
+        $id_order = Tools::getValue('id_order');
+
+        if(!$this->isGerenciaNetBilletOrder($id_order))
+            return;
+
+        $this->context->smarty->assign(array(
+            'ps_version' => _PS_VERSION_,
+            'boletoUrl' => dbGerencianetPrestaShop::returnGerencianetChargeData($id_order),
+            'this_page'=>$_SERVER['REQUEST_URI'],
+            'this_path'=>Tools::getShopDomain(true,true).__PS_BASE_URI__.'modules/'.$this->name.'/',
+            'this_path_ssl'=>Tools::getShopDomainSsl(true,true).__PS_BASE_URI__.'modules/'.$this->name.'/'
+        ));
+        return $this->display(__FILE__, 'adminorder.tpl');
+    }
+
+
+    private function isGerenciaNetBilletOrder($id_order)
+    {
+        $db=Db::getInstance();
+        $result=$db->getRow('
+			SELECT * FROM `'._DB_PREFIX_.'gerencianet_charge`
+			WHERE `id_order` = "'.$id_order.'" AND `charge_type` = "billet"
+		');
+        return intval($result['id_order'])!=0 ? true:false;
+    }
 
 	public function checkCurrency($cart)
 	{
