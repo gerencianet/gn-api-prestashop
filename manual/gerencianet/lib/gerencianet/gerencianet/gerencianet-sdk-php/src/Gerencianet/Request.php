@@ -26,7 +26,7 @@ class Request
         'base_url' => $this->config['baseUri'],
         'headers' => [
           'Content-Type' => 'application/json',
-          'api-sdk' => 'prestashop-' . $composerData['version'],
+          'api-sdk' => 'prestashop-0.3.0',
           'partner-token' => $partner_token
           ],
       ]);

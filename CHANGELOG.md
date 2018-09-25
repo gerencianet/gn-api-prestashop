@@ -1,3 +1,8 @@
+# v0.3.0
+
+* Delete: Bandeiras jcb, aura e discover do checkout da Gerencianet.
+* Add: Bandeira hipertcard no checkout da Gerencianet.
+
 # v0.2.2
 
 * Fix: Email com link di Boleto e link do Boleto no histórico.

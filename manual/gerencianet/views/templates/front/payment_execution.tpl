@@ -472,20 +472,12 @@
                             <label class="gn-card-brand gn-diners" for="diners" id="brand-diners" name="brand-diners"></label>
                         </div>
                         <div class="pull-left gn-card-brand-content">
-                            <input id="discover" type="radio" name="input-payment-card-brand" id="input-payment-card-brand" value="discover" class="gn-hide" />
-                            <label class="gn-card-brand gn-discover" for="discover" id="brand-discover" name="brand-discover"></label>
-                        </div>
-                        <div class="pull-left gn-card-brand-content">
-                            <input id="jcb" type="radio" name="input-payment-card-brand" id="input-payment-card-brand" value="jcb" class="gn-hide" />
-                            <label class="gn-card-brand gn-jcb" for="jcb" id="brand-jcb" name="brand-jcb"></label>
-                        </div>
-                        <div class="pull-left gn-card-brand-content">
                             <input id="elo" type="radio" name="input-payment-card-brand" id="input-payment-card-brand" value="elo" class="gn-hide" />
                             <label class="gn-card-brand gn-elo" for="elo" id="brand-elo" name="brand-elo"></label>
                         </div>
                         <div class="pull-left gn-card-brand-content">
-                            <input id="aura" type="radio" name="input-payment-card-brand" id="input-payment-card-brand" value="aura" class="gn-hide" />
-                            <label class="gn-card-brand gn-aura" for="aura" id="brand-aura" name="brand-aura"></label>
+                            <input id="hipercard" type="radio" name="input-payment-card-brand" id="input-payment-card-brand" value="hipercard" class="gn-hide" />
+                            <label class="gn-card-brand gn-hipercard" for="hipercard" id="brand-hipercard" name="brand-hipercard"></label>
                         </div>
                         <div class="clear"></div>
                     </div>

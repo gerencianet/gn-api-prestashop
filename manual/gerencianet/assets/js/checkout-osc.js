@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
     var id_charge = 0;
     var billetActive = "yes";
     var cardActive = "yes";
@@ -6,174 +6,174 @@ jQuery(document).ready(function($){
     $('#paymentMethodBilletRadio').prop('checked', false);
     $('#paymentMethodCardRadio').prop('checked', false);
 
-    if ($('#gn_billet_full_name').val()=="")  {
+    if ($('#gn_billet_full_name').val() == "") {
         if (typeof $('#billing_first_name').val() != "undefined")
             $('#gn_billet_full_name').val($('#billing_first_name').val());
         if (typeof $('#billing_last_name').val() != "undefined")
             $('#gn_billet_full_name').val($('#gn_billet_full_name').val() + " " + $('#billing_last_name').val());
     }
-    if ($('#gn_billet_email').val()=="")
+    if ($('#gn_billet_email').val() == "")
         $('#gn_billet_email').val($('#billing_email').val());
-    if ($('#gn_billet_phone_number').val()=="")    
+    if ($('#gn_billet_phone_number').val() == "")
         $('#gn_billet_phone_number').val($('#billing_phone').val());
-    if ($('#gn_billet_cpf').val()=="")
+    if ($('#gn_billet_cpf').val() == "")
         $('#gn_billet_cpf').val($('#billing_cpf').val());
-    if ($('#gn_billet_corporate_name').val()=="")
+    if ($('#gn_billet_corporate_name').val() == "")
         $('#gn_billet_corporate_name').val($('#billing_company').val());
-    if ($('#gn_billet_cnpj').val()=="")
+    if ($('#gn_billet_cnpj').val() == "")
         $('#gn_billet_cnpj').val($('#billing_cnpj').val());
 
-    if ($('#gn_card_full_name').val()=="") {
+    if ($('#gn_card_full_name').val() == "") {
         if (typeof $('#billing_first_name').val() != "undefined")
             $('#gn_card_full_name').val($('#billing_first_name').val());
         if (typeof $('#billing_last_name').val() != "undefined")
             $('#gn_card_full_name').val($('#gn_card_full_name').val() + " " + $('#billing_last_name').val());
     }
 
-    if ($('#gn_card_email').val()=="")
+    if ($('#gn_card_email').val() == "")
         $('#gn_card_email').val($('#billing_email').val());
-    if ($('#gn_card_phone_number').val()=="")    
+    if ($('#gn_card_phone_number').val() == "")
         $('#gn_card_phone_number').val($('#billing_phone').val());
-    if ($('#gn_card_cpf').val()=="")
+    if ($('#gn_card_cpf').val() == "")
         $('#gn_card_cpf').val($('#billing_cpf').val());
-    if ($('#gn_card_corporate_name').val()=="")
+    if ($('#gn_card_corporate_name').val() == "")
         $('#gn_card_corporate_name').val($('#billing_company').val());
-    if ($('#gn_card_cnpj').val()=="")
+    if ($('#gn_card_cnpj').val() == "")
         $('#gn_card_cnpj').val($('#billing_cnpj').val());
-    if ($('#gn_card_birth').val()=="")
+    if ($('#gn_card_birth').val() == "")
         $('#gn_card_birth').val($('#billing_birthdate').val());
-    if ($('#gn_card_street').val()=="")
+    if ($('#gn_card_street').val() == "")
         $('#gn_card_street').val($('#billing_address_1').val());
-    if ($('#gn_card_street_number').val()=="")
+    if ($('#gn_card_street_number').val() == "")
         $('#gn_card_street_number').val($('#billing_number').val());
-    if ($('#gn_card_neighborhood').val()=="")
+    if ($('#gn_card_neighborhood').val() == "")
         $('#gn_card_neighborhood').val($('#billing_neighborhood').val());
-    if ($('#gn_card_complement').val()=="")
+    if ($('#gn_card_complement').val() == "")
         $('#gn_card_complement').val($('#billing_address_2').val());
-    if ($('#gn_card_zipcode').val()=="")
+    if ($('#gn_card_zipcode').val() == "")
         $('#gn_card_zipcode').val($('#billing_postcode').val());
-    if ($('#gn_card_city').val()=="")
+    if ($('#gn_card_city').val() == "")
         $('#gn_card_city').val($('#billing_city').val());
-    if ($('#gn_card_state').val()=="")
+    if ($('#gn_card_state').val() == "")
         $('#gn_card_state').val($('#billing_state').val());
 
     validateBilletCustomerData();
     validateCardCustomerData();
 
-    $('#billing_first_name').change(function() {
+    $('#billing_first_name').change(function () {
         $('#gn_billet_full_name').val($('#billing_first_name').val() + " " + $('#billing_last_name').val());
         $('#gn_card_full_name').val($('#billing_first_name').val() + " " + $('#billing_last_name').val());
     });
 
-    $('#billing_last_name').change(function() {
+    $('#billing_last_name').change(function () {
         $('#gn_billet_full_name').val($('#billing_first_name').val() + " " + $('#billing_last_name').val());
         $('#gn_card_full_name').val($('#billing_first_name').val() + " " + $('#billing_last_name').val());
     });
 
-    $('#billing_email').change(function() {
+    $('#billing_email').change(function () {
         $('#gn_billet_email').val($('#billing_email').val());
         $('#gn_card_email').val($('#billing_email').val());
     });
 
-    $('#billing_phone').change(function() {
+    $('#billing_phone').change(function () {
         $('#gn_billet_phone_number').val($('#billing_phone').val());
         $('#gn_card_phone_number').val($('#billing_phone').val());
     });
 
-    $('#billing_cpf').change(function() {
+    $('#billing_cpf').change(function () {
         $('#gn_billet_cpf').val($('#billing_cpf').val());
         $('#gn_card_cpf').val($('#billing_cpf').val());
     });
 
-    $('#billing_company').change(function() {
+    $('#billing_company').change(function () {
         $('#gn_billet_corporate_name').val($('#billing_company').val());
         $('#gn_card_corporate_name').val($('#billing_company').val());
     });
 
-    $('#billing_cnpj').change(function() {
+    $('#billing_cnpj').change(function () {
         $('#gn_billet_cnpj').val($('#billing_cnpj').val());
         $('#gn_card_cnpj').val($('#billing_cnpj').val());
     });
 
-    $('#billing_birthdate').change(function() {
+    $('#billing_birthdate').change(function () {
         $('#gn_card_birth').val($('#billing_birthdate').val());
     });
 
-    $('#billing_address_1').change(function() {
+    $('#billing_address_1').change(function () {
         $('#gn_card_street').val($('#billing_address_1').val());
     });
 
-    $('#billing_number').change(function() {
+    $('#billing_number').change(function () {
         $('#gn_card_street_number').val($('#billing_number').val());
     });
 
-    $('#billing_neighborhood').change(function() {
+    $('#billing_neighborhood').change(function () {
         $('#gn_card_neighborhood').val($('#billing_neighborhood').val());
     });
 
-    $('#billing_address_2').change(function() {
+    $('#billing_address_2').change(function () {
         $('#gn_card_complement').val($('#billing_address_2').val());
     });
 
-    $('#billing_postcode').change(function() {
+    $('#billing_postcode').change(function () {
         $('#gn_card_zipcode').val($('#billing_postcode').val());
     });
 
-    $('#billing_city').change(function() {
+    $('#billing_city').change(function () {
         $('#gn_card_city').val($('#billing_city').val());
     });
 
-    $('#billing_state').change(function() {
+    $('#billing_state').change(function () {
         $('#gn_card_state').val($('#billing_state').val());
     });
 
-    $('#gn-pay-billet-button').click(function(e){
+    $('#gn-pay-billet-button').click(function (e) {
         e.preventDefault();
         e.stopPropagation();
 
-        $('#gn-pay-billet-button').prop("disabled",true);
+        $('#gn-pay-billet-button').prop("disabled", true);
         $('#gn-pay-billet-button').addClass("gn-osc-button-disabled");
 
         if (document.getElementById('paymentMethodBilletRadio').checked) {
             if (billetValidateFields()) {
-                if (id_charge!=0) {
+                if (id_charge != 0) {
                     payBilletCharge();
                 } else {
                     createCharge('billet');
                 }
             } else {
                 showError("Preencha corretamente os campos informados.");
-                $('#gn-pay-billet-button').prop("disabled",false);
+                $('#gn-pay-billet-button').prop("disabled", false);
                 $('#gn-pay-billet-button').removeClass("gn-osc-button-disabled");
             }
         } else {
             showError("Selecione um método de pagamento.");
-            $('#gn-pay-billet-button').prop("disabled",false);
+            $('#gn-pay-billet-button').prop("disabled", false);
             $('#gn-pay-billet-button').removeClass("gn-osc-button-disabled");
         }
     });
 
-    $('#gn-pay-card-button').click(function(e){
+    $('#gn-pay-card-button').click(function (e) {
         e.preventDefault();
         e.stopPropagation();
 
-        $('#gn-pay-card-button').prop("disabled",true);
+        $('#gn-pay-card-button').prop("disabled", true);
         $('#gn-pay-card-button').addClass("gn-osc-button-disabled");
-        if (document.getElementById('paymentMethodCardRadio').checked)  {
+        if (document.getElementById('paymentMethodCardRadio').checked) {
             if (cardValidateFields()) {
-                if (id_charge!=0) {
+                if (id_charge != 0) {
                     payCardCharge();
                 } else {
                     createCharge('card');
                 }
             } else {
                 showError("Preencha corretamente os campos informados.");
-                $('#gn-pay-card-button').prop("disabled",false);
+                $('#gn-pay-card-button').prop("disabled", false);
                 $('#gn-pay-card-button').removeClass("gn-osc-button-disabled");
             }
         } else {
             showError("Selecione um método de pagamento.");
-            $('#gn-pay-card-button').prop("disabled",false);
+            $('#gn-pay-card-button').prop("disabled", false);
             $('#gn-pay-card-button').removeClass("gn-osc-button-disabled");
         }
 
@@ -183,35 +183,35 @@ jQuery(document).ready(function($){
         $('.gn-loading-request').fadeIn();
 
         var order_id = jQuery('input[name="wc_order_id"]').val(),
-        data = {
-            action: "create_charge",
-            order_id: order_id
-        };
-        
+            data = {
+                action: "create_charge",
+                order_id: order_id
+            };
+
         jQuery.ajax({
             type: "POST",
             url: home_url + "ajax-request.php",
             data: data,
-            success: function(response) {
+            success: function (response) {
                 var obj = $.parseJSON(response);
-                if (obj.code==200) {
+                if (obj.code == 200) {
                     id_charge = obj.data.charge_id;
-                    if (paymentType=='billet') {
+                    if (paymentType == 'billet') {
                         payBilletCharge();
                     } else {
                         payCardCharge();
                     }
                 } else {
-                    $('#gn-pay-billet-button').prop("disabled",false);
+                    $('#gn-pay-billet-button').prop("disabled", false);
                     $('#gn-pay-billet-button').removeClass("gn-osc-button-disabled");
-                    $('#gn-pay-card-button').prop("disabled",false);
+                    $('#gn-pay-card-button').prop("disabled", false);
                     $('#gn-pay-card-button').removeClass("gn-osc-button-disabled");
                     $('.gn-loading-request').fadeOut();
                     showError('Ocorreu um erro ao tentar gerar a cobrança: <b>' + obj.message + '</b>');
                 }
-                
+
             },
-            error: function(){
+            error: function () {
                 alert("error ocurred");
             }
         });
@@ -223,10 +223,10 @@ jQuery(document).ready(function($){
         $('.gn-loading-request').fadeIn();
 
         var juridical;
-        if($('#pay_billet_with_cnpj').attr('checked')) {
-            juridical="1";
+        if ($('#pay_billet_with_cnpj').attr('checked')) {
+            juridical = "1";
         } else {
-            juridical="0";
+            juridical = "0";
         }
 
         var data = {
@@ -234,31 +234,31 @@ jQuery(document).ready(function($){
             charge_id: id_charge,
             order_id: '',
             name: jQuery('#gn_billet_full_name').val(),
-            cpf: jQuery('#gn_billet_cpf').val().replace(/[^\d]+/g,''),
-            phone_number: jQuery('#gn_billet_phone_number').val().replace(/[^\d]+/g,''),
-            cnpj: jQuery('#gn_billet_cnpj').val().replace(/[^\d]+/g,''),
+            cpf: jQuery('#gn_billet_cpf').val().replace(/[^\d]+/g, ''),
+            phone_number: jQuery('#gn_billet_phone_number').val().replace(/[^\d]+/g, ''),
+            cnpj: jQuery('#gn_billet_cnpj').val().replace(/[^\d]+/g, ''),
             corporate_name: jQuery('#gn_billet_corporate_name').val(),
             pay_billet_with_cnpj: juridical
         };
-        
+
         jQuery.ajax({
             type: "POST",
             url: home_url + "ajax-request.php",
             data: data,
-            success: function(response) {
+            success: function (response) {
                 var obj = $.parseJSON(response);
-                if (obj.code==200) {
+                if (obj.code == 200) {
                     $('#gn_charge_id_billet').val(obj.data.charge_id);
                     $('#billet-form').submit();
                 } else {
-                    $('#gn-pay-billet-button').prop("disabled",false);
+                    $('#gn-pay-billet-button').prop("disabled", false);
                     $('#gn-pay-billet-button').removeClass("gn-osc-button-disabled");
                     $('.form-group').show();
                     $('.gn-loading-request').fadeOut();
                     showError(obj.message);
                 }
             },
-            error: function(){
+            error: function () {
                 alert("error ocurred");
             }
         });
@@ -277,79 +277,79 @@ jQuery(document).ready(function($){
         expiration_month = $("#gn_card_expiration_month").val();
         expiration_year = $("#gn_card_expiration_year").val();
 
-        var callback = function(error, response) {
-          if(error) {
-            
-            showError("Os dados do cartão digitados são inválidos. Tente novamente.");
-            $('#gn-pay-card-button').prop("disabled",false);
-            $('#gn-pay-card-button').removeClass("gn-osc-button-disabled");
+        var callback = function (error, response) {
+            if (error) {
 
-            $('.gn-loading-request').fadeOut();
+                showError("Os dados do cartão digitados são inválidos. Tente novamente.");
+                $('#gn-pay-card-button').prop("disabled", false);
+                $('#gn-pay-card-button').removeClass("gn-osc-button-disabled");
 
-          } else {
-            var dateBirth = $('#gn_card_birth').val().split("/");
+                $('.gn-loading-request').fadeOut();
 
-            var juridical;
-            if($('#pay_card_with_cnpj').attr('checked')) {
-                juridical="1";
             } else {
-                juridical="0";
-            }
+                var dateBirth = $('#gn_card_birth').val().split("/");
 
-            var data = {
-                action: "pay_card",
-                charge_id: id_charge,
-                name: jQuery('#gn_card_full_name').val(),
-                cpf: jQuery('#gn_card_cpf').val().replace(/[^\d]+/g,''),
-                phone_number: jQuery('#gn_card_phone_number').val().replace(/[^\d]+/g,''),
-                cnpj: jQuery('#gn_card_cnpj').val().replace(/[^\d]+/g,''),
-                corporate_name: jQuery('#gn_card_corporate_name').val(),
-                pay_card_with_cnpj: juridical,
-                payment_token: response.data.payment_token,
-                birth: dateBirth[2] + "-" + dateBirth[1] + "-" + dateBirth[0],
-                email: $('#gn_card_email').val(),
-                street: $('#gn_card_street').val(),
-                number: $('#gn_card_street_number').val(),
-                neighborhood: $('#gn_card_neighborhood').val(),
-                complement: $('#gn_card_complement').val(),
-                zipcode: $('#gn_card_zipcode').val().replace(/[^\d]+/g,''),
-                city: $('#gn_card_city').val(),
-                state: $('#gn_card_state').val(),
-                installments: $('#gn_card_installments').val()
-            };
-            
-            jQuery.ajax({
-                type: "POST",
-                url: home_url + "ajax-request.php",
-                data: data,
-                success: function(response) {
-                    var obj = $.parseJSON(response);
-                    if (obj.code==200) {
-                        $('#gn_charge_id_card').val(obj.data.charge_id);
-                        $('#card-form').submit();
-                    } else {
-                        $('#gn-pay-card-button').prop("disabled",false);
-                        $('#gn-pay-card-button').removeClass("gn-osc-button-disabled");
-                        showError(obj.message);
-                        $('.form-group').show();
-                        $('.gn-loading-request').fadeOut();
-                    }
-                    
-                },
-                error: function(){
-                    alert("error ocurred");
+                var juridical;
+                if ($('#pay_card_with_cnpj').attr('checked')) {
+                    juridical = "1";
+                } else {
+                    juridical = "0";
                 }
-            });
-            return false;
-          }
+
+                var data = {
+                    action: "pay_card",
+                    charge_id: id_charge,
+                    name: jQuery('#gn_card_full_name').val(),
+                    cpf: jQuery('#gn_card_cpf').val().replace(/[^\d]+/g, ''),
+                    phone_number: jQuery('#gn_card_phone_number').val().replace(/[^\d]+/g, ''),
+                    cnpj: jQuery('#gn_card_cnpj').val().replace(/[^\d]+/g, ''),
+                    corporate_name: jQuery('#gn_card_corporate_name').val(),
+                    pay_card_with_cnpj: juridical,
+                    payment_token: response.data.payment_token,
+                    birth: dateBirth[2] + "-" + dateBirth[1] + "-" + dateBirth[0],
+                    email: $('#gn_card_email').val(),
+                    street: $('#gn_card_street').val(),
+                    number: $('#gn_card_street_number').val(),
+                    neighborhood: $('#gn_card_neighborhood').val(),
+                    complement: $('#gn_card_complement').val(),
+                    zipcode: $('#gn_card_zipcode').val().replace(/[^\d]+/g, ''),
+                    city: $('#gn_card_city').val(),
+                    state: $('#gn_card_state').val(),
+                    installments: $('#gn_card_installments').val()
+                };
+
+                jQuery.ajax({
+                    type: "POST",
+                    url: home_url + "ajax-request.php",
+                    data: data,
+                    success: function (response) {
+                        var obj = $.parseJSON(response);
+                        if (obj.code == 200) {
+                            $('#gn_charge_id_card').val(obj.data.charge_id);
+                            $('#card-form').submit();
+                        } else {
+                            $('#gn-pay-card-button').prop("disabled", false);
+                            $('#gn-pay-card-button').removeClass("gn-osc-button-disabled");
+                            showError(obj.message);
+                            $('.form-group').show();
+                            $('.gn-loading-request').fadeOut();
+                        }
+
+                    },
+                    error: function () {
+                        alert("error ocurred");
+                    }
+                });
+                return false;
+            }
         };
 
         getPaymentToken({
-          brand: card_brand,
-          number: card_number,
-          cvv: card_cvv,
-          expiration_month: expiration_month,
-          expiration_year: expiration_year
+            brand: card_brand,
+            number: card_number,
+            cvv: card_cvv,
+            expiration_month: expiration_month,
+            expiration_year: expiration_year
         }, callback);
     }
 
@@ -360,9 +360,9 @@ jQuery(document).ready(function($){
         expiration_month = $("#gn_card_expiration_month").val();
         expiration_year = $("#gn_card_expiration_year").val();
 
-        if (card_brand!="" && card_number!=""  && card_cvv!=""  && expiration_month!=""  && expiration_year!="" ) {
-            var callback = function(error, response) {
-                if(error) {
+        if (card_brand != "" && card_number != "" && card_cvv != "" && expiration_month != "" && expiration_year != "") {
+            var callback = function (error, response) {
+                if (error) {
                     return false;
                 } else {
                     hideError();
@@ -372,16 +372,16 @@ jQuery(document).ready(function($){
             };
 
             getPaymentToken({
-              brand: card_brand,
-              number: card_number,
-              cvv: card_cvv,
-              expiration_month: expiration_month,
-              expiration_year: expiration_year
+                brand: card_brand,
+                number: card_number,
+                cvv: card_cvv,
+                expiration_month: expiration_month,
+                expiration_year: expiration_year
             }, callback);
         }
     }
 
-    $('#gn_billet_cnpj').change(function() {
+    $('#gn_billet_cnpj').change(function () {
         if (verifyCNPJ($('#gn_billet_cnpj').val())) {
             $('#gn_billet_cnpj').removeClass("gn-inputs-error");
             hideError();
@@ -391,7 +391,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_billet_corporate_name').change(function() {
+    $('#gn_billet_corporate_name').change(function () {
         if (validateName($('#gn_billet_corporate_name').val())) {
             $('#gn_billet_corporate_name').removeClass("gn-inputs-error");
             hideError();
@@ -401,7 +401,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_billet_full_name').change(function() {
+    $('#gn_billet_full_name').change(function () {
         if (validateName($('#gn_billet_full_name').val())) {
             $('#gn_billet_full_name').removeClass("gn-inputs-error");
             hideError();
@@ -411,7 +411,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_billet_email').change(function() {
+    $('#gn_billet_email').change(function () {
         if (validateEmail($('#gn_billet_email').val())) {
             $('#gn_billet_email').removeClass("gn-inputs-error");
             hideError();
@@ -421,7 +421,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_billet_cpf').change(function() {
+    $('#gn_billet_cpf').change(function () {
         if (verifyCPF($('#gn_billet_cpf').val())) {
             $('#gn_billet_cpf').removeClass("gn-inputs-error");
             hideError();
@@ -431,7 +431,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_billet_phone_number').change(function() {
+    $('#gn_billet_phone_number').change(function () {
         if (validatePhone($('#gn_billet_phone_number').val())) {
             $('#gn_billet_phone_number').removeClass("gn-inputs-error");
             hideError();
@@ -441,7 +441,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_cnpj').change(function() {
+    $('#gn_card_cnpj').change(function () {
         if (verifyCNPJ($('#gn_card_cnpj').val())) {
             $('#gn_card_cnpj').removeClass("gn-inputs-error");
             hideError();
@@ -451,7 +451,7 @@ jQuery(document).ready(function($){
         }
     });
 
-     $('#gn_card_corporate_name').change(function() {
+    $('#gn_card_corporate_name').change(function () {
         if (validateName($('#gn_card_corporate_name').val())) {
             $('#gn_card_corporate_name').removeClass("gn-inputs-error");
             hideError();
@@ -461,7 +461,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_full_name').change(function() {
+    $('#gn_card_full_name').change(function () {
         if (validateName($('#gn_card_full_name').val())) {
             $('#gn_card_full_name').removeClass("gn-inputs-error");
             hideError();
@@ -471,7 +471,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_email').change(function() {
+    $('#gn_card_email').change(function () {
         if (validateEmail($('#gn_card_email').val())) {
             $('#gn_card_email').removeClass("gn-inputs-error");
             hideError();
@@ -481,7 +481,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_cpf').change(function() {
+    $('#gn_card_cpf').change(function () {
         if (verifyCPF($('#gn_card_cpf').val())) {
             $('#gn_card_cpf').removeClass("gn-inputs-error");
             hideError();
@@ -491,7 +491,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_phone_number').change(function() {
+    $('#gn_card_phone_number').change(function () {
         if (validatePhone($('#gn_card_phone_number').val())) {
             $('#gn_card_phone_number').removeClass("gn-inputs-error");
             hideError();
@@ -501,7 +501,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_birth').change(function() {
+    $('#gn_card_birth').change(function () {
         if (validateBirth($('#gn_card_birth').val())) {
             $('#gn_card_birth').removeClass("gn-inputs-error");
             hideError();
@@ -511,7 +511,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_street').change(function() {
+    $('#gn_card_street').change(function () {
         if (validateStreet($('#gn_card_street').val())) {
             $('#gn_card_street').removeClass("gn-inputs-error");
             hideError();
@@ -521,7 +521,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_street_number').change(function() {
+    $('#gn_card_street_number').change(function () {
         if (validateStreetNumber($('#gn_card_street_number').val())) {
             $('#gn_card_street_number').removeClass("gn-inputs-error");
             hideError();
@@ -531,7 +531,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_neighborhood').change(function() {
+    $('#gn_card_neighborhood').change(function () {
         if (validateNeighborhood($('#gn_card_neighborhood').val())) {
             $('#gn_card_neighborhood').removeClass("gn-inputs-error");
             hideError();
@@ -541,7 +541,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_complement').change(function() {
+    $('#gn_card_complement').change(function () {
         if (validateComplement($('#gn_card_complement').val())) {
             $('#gn_card_complement').removeClass("gn-inputs-error");
             hideError();
@@ -551,7 +551,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_city').change(function() {
+    $('#gn_card_city').change(function () {
         if (validateCity($('#gn_card_city').val())) {
             $('#gn_card_city').removeClass("gn-inputs-error");
             hideError();
@@ -561,7 +561,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_zipcode').change(function() {
+    $('#gn_card_zipcode').change(function () {
         if (validateZipcode($('#gn_card_zipcode').val())) {
             $('#gn_card_zipcode').removeClass("gn-inputs-error");
             hideError();
@@ -571,7 +571,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#gn_card_state').change(function() {
+    $('#gn_card_state').change(function () {
         if (validateState($('#gn_card_state').val())) {
             $('#gn_card_state').removeClass("gn-inputs-error");
             hideError();
@@ -629,7 +629,7 @@ jQuery(document).ready(function($){
             errorMessage = "Telefone inválido. Por favor, digite novamente.";
         }
 
-        if (errorMessage!="") {
+        if (errorMessage != "") {
             showError(errorMessage);
             return false;
         } else {
@@ -734,7 +734,7 @@ jQuery(document).ready(function($){
             errorMessage = "Estado inválido. Por favor, selecione novamente.";
         }
 
-        if (errorMessage!="") {
+        if (errorMessage != "") {
             showError(errorMessage);
             return false;
         } else {
@@ -795,7 +795,7 @@ jQuery(document).ready(function($){
             $('#gn_card_street_number_row').show();
         }
 
-        if (validateNeighborhood($('#gn_card_neighborhood').val()) ) {
+        if (validateNeighborhood($('#gn_card_neighborhood').val())) {
             $('#gn_card_neighborhood_row').hide();
         } else {
             $('#gn_card_neighborhood_row').show();
@@ -821,33 +821,33 @@ jQuery(document).ready(function($){
 
     }
 
-    if ($('#billing_persontype').val()=="2") {
+    if ($('#billing_persontype').val() == "2") {
         $('#pay_cnpj').show();
         $('#pay_cnpj_card').show();
-        $('#pay_billet_with_cnpj').prop( "checked", true );
-        $('#pay_card_with_cnpj').prop( "checked", true );
+        $('#pay_billet_with_cnpj').prop("checked", true);
+        $('#pay_card_with_cnpj').prop("checked", true);
     } else {
         $('#pay_cnpj').hide();
         $('#pay_cnpj_card').hide();
-        $('#pay_billet_with_cnpj').prop( "checked", false );
-        $('#pay_card_with_cnpj').prop( "checked", false );
+        $('#pay_billet_with_cnpj').prop("checked", false);
+        $('#pay_card_with_cnpj').prop("checked", false);
     }
 
-    $('#billing_persontype').on('change', function() {
-        if (this.value==2) {
+    $('#billing_persontype').on('change', function () {
+        if (this.value == 2) {
             $('#pay_cnpj').show();
             $('#pay_cnpj_card').show();
-            $('#pay_billet_with_cnpj').prop( "checked", true );
-            $('#pay_card_with_cnpj').prop( "checked", true );
+            $('#pay_billet_with_cnpj').prop("checked", true);
+            $('#pay_card_with_cnpj').prop("checked", true);
         } else {
             $('#pay_cnpj').hide();
             $('#pay_cnpj_card').hide();
-            $('#pay_billet_with_cnpj').prop( "checked", false );
-            $('#pay_card_with_cnpj').prop( "checked", false );
+            $('#pay_billet_with_cnpj').prop("checked", false);
+            $('#pay_card_with_cnpj').prop("checked", false);
         }
     });
 
-    $('#pay_billet_with_cnpj').click(function() {
+    $('#pay_billet_with_cnpj').click(function () {
         if ($(this).is(':checked')) {
             $('#pay_cnpj').slideDown();
         } else {
@@ -855,7 +855,7 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('#pay_card_with_cnpj').click(function() {
+    $('#pay_card_with_cnpj').click(function () {
         if ($(this).is(':checked')) {
             $('#pay_cnpj_card').slideDown();
         } else {
@@ -863,28 +863,26 @@ jQuery(document).ready(function($){
         }
     });
 
-    $('input[type=radio][name=gn_card_brand]').change(function() {
-        if (this.value=="visa" || this.value=="mastercard" || this.value=="amex" || this.value=="diners" || this.value=="discover" || this.value=="jcb" || this.value=="elo" || this.value=="aura") {
+    $('input[type=radio][name=gn_card_brand]').change(function () {
+        if (this.value == "visa" || this.value == "mastercard" || this.value == "amex" || this.value == "diners" || this.value == "elo" || this.value == "hipercard") {
             getInstallments(this.value);
         } else {
             getInstallments($('input[name=gn_card_brand]:checked', '#card-form').val());
         }
     });
 
-    $("input[name='gn_card_brand']").click(function() {
+    $("input[name='gn_card_brand']").click(function () {
         jQuery("#brand-visa").removeClass("gn-card-brand-checked");
         jQuery("#brand-mastercard").removeClass("gn-card-brand-checked");
         jQuery("#brand-amex").removeClass("gn-card-brand-checked");
         jQuery("#brand-diners").removeClass("gn-card-brand-checked");
-        jQuery("#brand-discover").removeClass("gn-card-brand-checked");
-        jQuery("#brand-jcb").removeClass("gn-card-brand-checked");
         jQuery("#brand-elo").removeClass("gn-card-brand-checked");
-        jQuery("#brand-aura").removeClass("gn-card-brand-checked");
-        
+        jQuery("#brand-hipercard").removeClass("gn-card-brand-checked");
+
         jQuery("#brand-" + this.value).addClass("gn-card-brand-checked");
     });
 
-    jQuery('#gn-billet-payment-option-selector').click(function(e){
+    jQuery('#gn-billet-payment-option-selector').click(function (e) {
         $('#collapse-payment-card').hide();
         $('#collapse-payment-billet').slideDown();
         $('#paymentMethodBilletRadio').prop('checked', true);
@@ -898,7 +896,7 @@ jQuery(document).ready(function($){
         hideError();
     });
 
-    jQuery('#gn-card-payment-option-selector').click(function(e){
+    jQuery('#gn-card-payment-option-selector').click(function (e) {
         $('#collapse-payment-card').slideDown();
         $('#collapse-payment-billet').hide();
         $('#paymentMethodBilletRadio').prop('checked', false);
@@ -912,46 +910,49 @@ jQuery(document).ready(function($){
         hideError();
     });
 
-    if(jQuery.mask) {
-        $(".cpf-mask").mask("999.999.999-99",{
-            completed:function(){ 
+    if (jQuery.mask) {
+        $(".cpf-mask").mask("999.999.999-99", {
+            completed: function () {
                 if (!verifyCPF(this.val())) {
                     showError('CPF inválido. Digite novamente.');
                 } else {
                     hideError();
                 }
-            },placeholder:"___.___.___-__"});
+            }, placeholder: "___.___.___-__"
+        });
 
-        $(".cnpj-mask").mask("99.999.999/9999-99",{
-            completed:function(){ 
+        $(".cnpj-mask").mask("99.999.999/9999-99", {
+            completed: function () {
                 if (!verifyCNPJ(this.val())) {
                     showError('CNPJ inválido. Digite novamente.');
                 } else {
                     hideError();
                 }
-            },placeholder:"__.___.___/____-__"});
+            }, placeholder: "__.___.___/____-__"
+        });
 
-        $(".phone-mask").focusout(function(){
+        $(".phone-mask").focusout(function () {
             $(".phone-mask").unmask();
-                var phone = $(".phone-mask").val().replace(/[^\d]+/g,'');
-                if(phone.length > 10) {
-                    $(".phone-mask").mask("(99) 99999-999?9");
-                } else {
-                    $(".phone-mask").mask("(99) 9999-9999?9");
-                }
-            }).trigger("focusout");
+            var phone = $(".phone-mask").val().replace(/[^\d]+/g, '');
+            if (phone.length > 10) {
+                $(".phone-mask").mask("(99) 99999-999?9");
+            } else {
+                $(".phone-mask").mask("(99) 9999-9999?9");
+            }
+        }).trigger("focusout");
 
-        $('.birth-mask').mask("99/99/9999",{
-            completed:function(){ 
+        $('.birth-mask').mask("99/99/9999", {
+            completed: function () {
                 if (!validateBirth(this.val())) {
                     showError('Data de nascimento inválida. Digite novamente.');
                 } else {
                     hideError();
                 }
-            },placeholder:"__/__/____"});
+            }, placeholder: "__/__/____"
+        });
 
-        $('#input-payment-card-number').mask('9999999999999999?999',{placeholder:""});
-        $('#input-payment-card-cvv').mask('999?99',{placeholder:""});
+        $('#input-payment-card-number').mask('9999999999999999?999', { placeholder: "" });
+        $('#input-payment-card-cvv').mask('999?99', { placeholder: "" });
 
     }
 
@@ -977,7 +978,7 @@ jQuery(document).ready(function($){
     function validatePhone(phone_number) {
         if (phone_number) {
             if (phone_number.length < 10) {
-                return false; 
+                return false;
             } else {
                 return true;
             }
@@ -986,7 +987,7 @@ jQuery(document).ready(function($){
 
     function validateStreet(data) {
         if (data) {
-            if (data.length<1 || data.length>200) {
+            if (data.length < 1 || data.length > 200) {
                 return false;
             } else {
                 return true;
@@ -998,7 +999,7 @@ jQuery(document).ready(function($){
 
     function validateStreetNumber(data) {
         if (data) {
-            if (data.length<1 || data.length>55) {
+            if (data.length < 1 || data.length > 55) {
                 return false;
             } else {
                 return true;
@@ -1010,7 +1011,7 @@ jQuery(document).ready(function($){
 
     function validateNeighborhood(data) {
         if (data) {
-            if (data.length<1 || data.length>255) {
+            if (data.length < 1 || data.length > 255) {
                 return false;
             } else {
                 return true;
@@ -1022,7 +1023,7 @@ jQuery(document).ready(function($){
 
     function validateComplement(data) {
         if (data) {
-            if (data.length>55) {
+            if (data.length > 55) {
                 return false;
             } else {
                 return true;
@@ -1047,7 +1048,7 @@ jQuery(document).ready(function($){
 
     function validateZipcode(data) {
         if (data) {
-            if (data.replace(/[^\d]+/g,'').length!=8) {
+            if (data.replace(/[^\d]+/g, '').length != 8) {
                 return false;
             } else {
                 return true;
@@ -1057,7 +1058,7 @@ jQuery(document).ready(function($){
 
     function validateCity(data) {
         if (data) {
-            if (data.length<1 || data.length>255) {
+            if (data.length < 1 || data.length > 255) {
                 return false;
             } else {
                 return true;
@@ -1069,27 +1070,27 @@ jQuery(document).ready(function($){
 
     function verifyCPF(cpf) {
         if (cpf) {
-            cpf = cpf.replace(/[^\d]+/g,'');
-            
-            if(cpf == '' || cpf.length != 11) return false;
-            
+            cpf = cpf.replace(/[^\d]+/g, '');
+
+            if (cpf == '' || cpf.length != 11) return false;
+
             var resto;
             var soma = 0;
-            
+
             if (cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999" || cpf == "12345678909") return false;
-            
-            for (i=1; i<=9; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
+
+            for (i = 1; i <= 9; i++) soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
             resto = (soma * 10) % 11;
-            
-            if ((resto == 10) || (resto == 11))  resto = 0;
-            if (resto != parseInt(cpf.substring(9, 10)) ) return false;
-            
+
+            if ((resto == 10) || (resto == 11)) resto = 0;
+            if (resto != parseInt(cpf.substring(9, 10))) return false;
+
             soma = 0;
-            for (i = 1; i <= 10; i++) soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+            for (i = 1; i <= 10; i++) soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
             resto = (soma * 10) % 11;
-            
-            if ((resto == 10) || (resto == 11))  resto = 0;
-            if (resto != parseInt(cpf.substring(10, 11) ) ) return false;
+
+            if ((resto == 10) || (resto == 11)) resto = 0;
+            if (resto != parseInt(cpf.substring(10, 11))) return false;
             return true;
         } else {
             return false;
@@ -1098,43 +1099,43 @@ jQuery(document).ready(function($){
 
     function verifyCNPJ(cnpj) {
         if (cnpj) {
-            cnpj = cnpj.replace(/[^\d]+/g,'');
+            cnpj = cnpj.replace(/[^\d]+/g, '');
 
-            if(cnpj == '' || cnpj.length != 14) return false;
+            if (cnpj == '' || cnpj.length != 14) return false;
 
             if (cnpj == "00000000000000" || cnpj == "11111111111111" || cnpj == "22222222222222" || cnpj == "33333333333333" || cnpj == "44444444444444" || cnpj == "55555555555555" || cnpj == "66666666666666" || cnpj == "77777777777777" || cnpj == "88888888888888" || cnpj == "99999999999999") return false;
 
             var tamanho = cnpj.length - 2
-            var numeros = cnpj.substring(0,tamanho);
+            var numeros = cnpj.substring(0, tamanho);
             var digitos = cnpj.substring(tamanho);
             var soma = 0;
             var pos = tamanho - 7;
-            
+
             for (i = tamanho; i >= 1; i--) {
-              soma += numeros.charAt(tamanho - i) * pos--;
-              if (pos < 2)
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2)
                     pos = 9;
             }
-            
+
             var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            
+
             if (resultado != digitos.charAt(0)) return false;
 
             tamanho = tamanho + 1;
-            numeros = cnpj.substring(0,tamanho);
+            numeros = cnpj.substring(0, tamanho);
             soma = 0;
             pos = tamanho - 7;
-            
+
             for (i = tamanho; i >= 1; i--) {
-              soma += numeros.charAt(tamanho - i) * pos--;
-              if (pos < 2) pos = 9;
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2) pos = 9;
             }
-            
+
             resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            
+
             if (resultado != digitos.charAt(1)) return false;
 
-            return true; 
+            return true;
         } else {
             return false;
         }
@@ -1144,14 +1145,14 @@ jQuery(document).ready(function($){
         if (phone_number) {
             if (phone_number.length < 14) {
                 showError("O telefone informado é inválido.");
-                return false; 
+                return false;
             } else {
                 var pattern = new RegExp(/^[1-9]{2}9?[0-9]{8}$/);
-                if (pattern.test(phone_number.replace(/[^\d]+/g,''))) {
+                if (pattern.test(phone_number.replace(/[^\d]+/g, ''))) {
                     hideError();
-                    return true; 
+                    return true;
                 } else {
-                    return false; 
+                    return false;
                 }
             }
         } else {
@@ -1170,7 +1171,7 @@ jQuery(document).ready(function($){
     }
 
     function scrollToTop() {
-        $("html, body").animate({ scrollTop: $("#gerencianet-container").offset().top-80 }, "slow");
+        $("html, body").animate({ scrollTop: $("#gerencianet-container").offset().top - 80 }, "slow");
     }
 
     function showError(message) {
@@ -1178,7 +1179,7 @@ jQuery(document).ready(function($){
             $('.gn-osc-warning-payment').slideDown();
         }
         scrollToTop();
-        jQuery(".gerencianet-messages").html( message )
+        jQuery(".gerencianet-messages").html(message)
     }
 
     function hideError() {
@@ -1187,46 +1188,46 @@ jQuery(document).ready(function($){
 
     function getInstallments(card_brand) {
         $('#gn_card_installments_row').html('<select name="gn_card_installments" id="gn_card_installments" class="form-control ' +
-            'gn-form-select">' + 
-                        '<option value="">Aguarde, carregando...</option> ' +
-                    '</select>').show();
+            'gn-form-select">' +
+            '<option value="">Aguarde, carregando...</option> ' +
+            '</select>').show();
         var data = {
             action: "get_installments",
             order_id: '',
             brand: card_brand
         };
-        
+
         jQuery.ajax({
             type: "POST",
             url: home_url + "ajax-request.php",
             data: data,
-            success: function(response) {
+            success: function (response) {
                 var obj = $.parseJSON(response);
-                if (obj.code==200) {
-                    var options = ''; 
+                if (obj.code == 200) {
+                    var options = '';
                     for (var i = 0; i < obj.data.installments.length; i++) {
                         options += '<option value="' + obj.data.installments[i].installment + '">' + obj.data.installments[i].installment + 'x de R$' + obj.data.installments[i].currency + '</option>';
-                    }   
+                    }
                     $('#gn_card_installments_row').html('<select name="gn_card_installments" id="gn_card_installments" class="form-control ' +
-            'gn-form-select">' + options + '</select>').show();
+                        'gn-form-select">' + options + '</select>').show();
                 }
             },
-            error: function(){
+            error: function () {
                 alert("error ocurred");
             }
         });
         //return false;
     }
 
-    $( window ).resize(function() {
+    $(window).resize(function () {
         fixScreenSize();
     });
 
     function fixScreenSize() {
-        if($( "#gerencianet-container" ).width()<600) {
-            $( "#gerencianet-container" ).addClass("gerencianet-container-fix-size");
+        if ($("#gerencianet-container").width() < 600) {
+            $("#gerencianet-container").addClass("gerencianet-container-fix-size");
         } else {
-            $( "#gerencianet-container" ).removeClass("gerencianet-container-fix-size");
+            $("#gerencianet-container").removeClass("gerencianet-container-fix-size");
         }
     }
     fixScreenSize();
