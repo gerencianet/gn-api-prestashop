@@ -213,7 +213,7 @@ switch ($action) {
 
 		if (isset($resultCheck["code"])) {
 			if ($resultCheck["code"]==200) {		
-				dbGerencianetPrestaShop::saveGnCharge($post_charge_id, '', 'billet', floatval($total_discount/100), $resultCheck['data']['link']);
+				dbGerencianetPrestaShop::saveGnCharge($post_charge_id, '', 'billet', floatval($total_discount/100), $resultCheck['data']['pdf']['charge']);
 
 				if (Configuration::get('GERENCIANET_DEBUG')=="1") {
 					GerencianetLog('GERENCIANET :: gerencianet_pay_billet Request : SUCCESS ' );
