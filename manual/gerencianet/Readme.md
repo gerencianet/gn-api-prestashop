@@ -1,4 +1,4 @@
-# Módulo de Integração Gerencianet para PrestaShop - Versão 0.3.1 #
+# Módulo de Integração Gerencianet para PrestaShop - Versão 0.3.2 #
 
 O módulo Gerencianet para PrestaShop permite receber pagamentos por meio do checkout transparente da nossa API.
 Compatível com as versões do PrestaShop a partir de 1.6.0.

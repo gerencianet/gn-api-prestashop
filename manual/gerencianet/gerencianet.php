@@ -41,11 +41,12 @@ class Gerencianet extends PaymentModule
 	public $address;
 	public $extra_mail_vars;
 	public $payee_code;
+	public $tlsOk = true;
 	public function __construct()
 	{
 		$this->name = 'gerencianet';
 		$this->tab = 'payments_gateways';
-		$this->version = '0.3.0';
+		$this->version = '0.3.2';
 		$this->author = 'Gerencianet';
 		$this->controllers = array('payment', 'validation');
 		$this->is_eu_compatible = 1;
@@ -63,41 +64,43 @@ class Gerencianet extends PaymentModule
 
 	public function install()
 	{
-		if (!parent::install() || !$this->registerHook('payment') || ! $this->registerHook('displayPaymentEU') || !$this->registerHook('paymentReturn')) {
+		if (!parent::install() || !$this->registerHook('payment') || !$this->registerHook('displayPaymentEU') || !$this->registerHook('paymentReturn')) {
 			return false;
 		}
 
-		if (! $this->generateGerencianetOrderStatus()) {
-            return false;
-        }
+		if (!$this->generateGerencianetOrderStatus()) {
+			return false;
+		}
 
-        if (! $this->createTables()) {
-            return false;
-        }
+		if (!$this->createTables()) {
+			return false;
+		}
 
-        $this->setGerencianetDefaultValues();
+		$this->setGerencianetDefaultValues();
 
 		return true;
 	}
 
 	public function uninstall()
 	{
-		if (!Configuration::deleteByName('GERENCIANET_SANDBOX')
-		|| !Configuration::deleteByName('GERENCIANET_PAYMENT_OPTION_BILLET')
-		|| !Configuration::deleteByName('GERENCIANET_PAYMENT_OPTION_CARD')
-		|| !Configuration::deleteByName('GERENCIANET_BILLET_DAYS_TO_EXPIRE')
-		|| !Configuration::deleteByName('GERENCIANET_DISCOUNT_BILLET_VALUE')
-		|| !Configuration::deleteByName('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE')
-		|| !Configuration::deleteByName('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE_NOTIFY')
-		|| !Configuration::deleteByName('GERENCIANET_STATUS')
-		|| !Configuration::deleteByName('GERENCIANET_CLIENT_ID_PROD')
-		|| !Configuration::deleteByName('GERENCIANET_CLIENT_SECRET_PROD')
-		|| !Configuration::deleteByName('GERENCIANET_CLIENT_ID_DEV')
-		|| !Configuration::deleteByName('GERENCIANET_CLIENT_SECRET_DEV')
-		|| !Configuration::deleteByName('GERENCIANET_PAYEE_CODE')
-		|| !Configuration::deleteByName('GERENCIANET_DEBUG')
-		|| !Configuration::deleteByName('GERENCIANET_CHECKOUT_TYPE')
-		|| !parent::uninstall())
+		if (
+			!Configuration::deleteByName('GERENCIANET_SANDBOX')
+			|| !Configuration::deleteByName('GERENCIANET_PAYMENT_OPTION_BILLET')
+			|| !Configuration::deleteByName('GERENCIANET_PAYMENT_OPTION_CARD')
+			|| !Configuration::deleteByName('GERENCIANET_BILLET_DAYS_TO_EXPIRE')
+			|| !Configuration::deleteByName('GERENCIANET_DISCOUNT_BILLET_VALUE')
+			|| !Configuration::deleteByName('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE')
+			|| !Configuration::deleteByName('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE_NOTIFY')
+			|| !Configuration::deleteByName('GERENCIANET_STATUS')
+			|| !Configuration::deleteByName('GERENCIANET_CLIENT_ID_PROD')
+			|| !Configuration::deleteByName('GERENCIANET_CLIENT_SECRET_PROD')
+			|| !Configuration::deleteByName('GERENCIANET_CLIENT_ID_DEV')
+			|| !Configuration::deleteByName('GERENCIANET_CLIENT_SECRET_DEV')
+			|| !Configuration::deleteByName('GERENCIANET_PAYEE_CODE')
+			|| !Configuration::deleteByName('GERENCIANET_DEBUG')
+			|| !Configuration::deleteByName('GERENCIANET_CHECKOUT_TYPE')
+			|| !parent::uninstall()
+		)
 			return false;
 
 		return true;
@@ -113,111 +116,108 @@ class Gerencianet extends PaymentModule
 		Configuration::updateValue('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE', "1");
 		Configuration::updateValue('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE_NOTIFY', "1");
 		Configuration::updateValue('GERENCIANET_STATUS', "0");
-		Configuration::updateValue('GERENCIANET_DEBUG', "0");	
-		Configuration::updateValue('GERENCIANET_CHECKOUT_TYPE', "0");		
+		Configuration::updateValue('GERENCIANET_DEBUG', "0");
+		Configuration::updateValue('GERENCIANET_CHECKOUT_TYPE', "0");
 	}
 
 	private function generateGerencianetOrderStatus()
-    {
-        $orders_added = true;
-        $name_state = null;
-        $image = _PS_ROOT_DIR_ . '/modules/gerencianet/logo.gif';
-        
-        foreach (GerencianetUtil::getCustomOrderStatusGerencianet() as $key => $statusGerencianet) {
+	{
+		$orders_added = true;
+		$name_state = null;
+		$image = _PS_ROOT_DIR_ . '/modules/gerencianet/logo.gif';
 
-            $order_state = new OrderState();
-            $order_state->module_name = 'gerencianet';
-            $order_state->send_email = $statusGerencianet['send_email'];
-            $order_state->color = $statusGerencianet['color'];
-            $order_state->hidden = $statusGerencianet['hidden'];
-            $order_state->delivery = $statusGerencianet['delivery'];
-            $order_state->logable = $statusGerencianet['logable'];
-            $order_state->invoice = $statusGerencianet['invoice'];
-            
-            if (version_compare(_PS_VERSION_, '1.5', '>')) {
-                $order_state->unremovable = $statusGerencianet['unremovable'];
-                $order_state->shipped = $statusGerencianet['shipped'];
-                $order_state->paid = $statusGerencianet['paid'];
-            }
-            
-            $order_state->name = array();
-            $order_state->template = array();
-            $continue = false;
-            
-            foreach (Language::getLanguages(false) as $language) {
-                
-                $list_states = $this->findOrderStates($language['id_lang']);
-                
-                $continue = $this->checkIfOrderStatusExists(
-                    $language['id_lang'],
-                    $statusGerencianet['name'],
-                    $list_states
-                );
-                
-                if ($continue) {
-                    $order_state->name[(int) $language['id_lang']] = $statusGerencianet['name'];
-                    $order_state->template[$language['id_lang']] = $statusGerencianet['template'];
-                }
-                
-                if ($key == 'WAITING') {
-                    $this->copyMailTo($statusGerencianet['template'], $language['iso_code'], 'html');
-                    $this->copyMailTo($statusGerencianet['template'], $language['iso_code'], 'txt');
-                }
-                
-            }
-            
-            if ($continue) {
-                
-                if ($order_state->add()) {
-                    
-                    $file = _PS_ROOT_DIR_ . '/img/os/' . (int) $order_state->id . '.gif';
-                    copy($image, $file);
-                    
-                }
-            }
-            
-            Configuration::updateValue('GERENCIANET_CHARGE_CODE_'.$key, $this->returnIdOrderByStatusGerencianet($statusGerencianet['name']));
-            
-        }
-        
-        return $orders_added;
-    }
+		foreach (GerencianetUtil::getCustomOrderStatusGerencianet() as $key => $statusGerencianet) {
 
-    private function copyMailTo($name, $lang, $ext)
-    {
-        
-        $template = _PS_MAIL_DIR_.$lang.'/'.$name.'.'.$ext;
-        
-        if (! file_exists($template)) {
-            
-            $templateToCopy = _PS_ROOT_DIR_ . '/modules/gerencianet/mails/' . $name .'.'. $ext;
-            copy($templateToCopy, $template);
-            
-        }
-    }
-    
+			$order_state = new OrderState();
+			$order_state->module_name = 'gerencianet';
+			$order_state->send_email = $statusGerencianet['send_email'];
+			$order_state->color = $statusGerencianet['color'];
+			$order_state->hidden = $statusGerencianet['hidden'];
+			$order_state->delivery = $statusGerencianet['delivery'];
+			$order_state->logable = $statusGerencianet['logable'];
+			$order_state->invoice = $statusGerencianet['invoice'];
 
-    public function validateNotification($notification_token) {
+			if (version_compare(_PS_VERSION_, '1.5', '>')) {
+				$order_state->unremovable = $statusGerencianet['unremovable'];
+				$order_state->shipped = $statusGerencianet['shipped'];
+				$order_state->paid = $statusGerencianet['paid'];
+			}
+
+			$order_state->name = array();
+			$order_state->template = array();
+			$continue = false;
+
+			foreach (Language::getLanguages(false) as $language) {
+
+				$list_states = $this->findOrderStates($language['id_lang']);
+
+				$continue = $this->checkIfOrderStatusExists(
+					$language['id_lang'],
+					$statusGerencianet['name'],
+					$list_states
+				);
+
+				if ($continue) {
+					$order_state->name[(int)$language['id_lang']] = $statusGerencianet['name'];
+					$order_state->template[$language['id_lang']] = $statusGerencianet['template'];
+				}
+
+				if ($key == 'WAITING') {
+					$this->copyMailTo($statusGerencianet['template'], $language['iso_code'], 'html');
+					$this->copyMailTo($statusGerencianet['template'], $language['iso_code'], 'txt');
+				}
+			}
+
+			if ($continue) {
+
+				if ($order_state->add()) {
+
+					$file = _PS_ROOT_DIR_ . '/img/os/' . (int)$order_state->id . '.gif';
+					copy($image, $file);
+				}
+			}
+
+			Configuration::updateValue('GERENCIANET_CHARGE_CODE_' . $key, $this->returnIdOrderByStatusGerencianet($statusGerencianet['name']));
+		}
+
+		return $orders_added;
+	}
+
+	private function copyMailTo($name, $lang, $ext)
+	{
+
+		$template = _PS_MAIL_DIR_ . $lang . '/' . $name . '.' . $ext;
+
+		if (!file_exists($template)) {
+
+			$templateToCopy = _PS_ROOT_DIR_ . '/modules/gerencianet/mails/' . $name . '.' . $ext;
+			copy($templateToCopy, $template);
+		}
+	}
+
+
+	public function validateNotification($notification_token)
+	{
 
 		if (Tools::getValue('notification')) {
 
-			$gnIntegration = new GerencianetIntegration(Configuration::get('GERENCIANET_CLIENT_ID_PROD'),Configuration::get('GERENCIANET_CLIENT_SECRET_PROD'),Configuration::get('GERENCIANET_CLIENT_ID_DEV'),Configuration::get('GERENCIANET_CLIENT_SECRET_DEV'),Configuration::get('GERENCIANET_SANDBOX'),Configuration::get('GERENCIANET_PAYEE_CODE'));
+			$gnIntegration = new GerencianetIntegration(Configuration::get('GERENCIANET_CLIENT_ID_PROD'), Configuration::get('GERENCIANET_CLIENT_SECRET_PROD'), Configuration::get('GERENCIANET_CLIENT_ID_DEV'), Configuration::get('GERENCIANET_CLIENT_SECRET_DEV'), Configuration::get('GERENCIANET_SANDBOX'), Configuration::get('GERENCIANET_PAYEE_CODE'));
 			$notification = json_decode($gnIntegration->notificationCheck($notification_token));
-		    if ($notification->code==200) {
+			if ($notification->code == 200) {
 
 				if (Configuration::get('GERENCIANET_DEBUG')) {
-					$this->GerencianetLog( 'GERENCIANET :: notification Request : SUCCESS ' );
+					$this->GerencianetLog('GERENCIANET :: notification Request : SUCCESS ');
 				}
 
-		    	foreach ($notification->data as $notification_data) {
-			    	$orderIdFromNotification = $notification_data->custom_id;
-			    	$orderStatusFromNotification = $notification_data->status->current;
-			    }
+				foreach ($notification->data as $notification_data) {
+					$orderIdFromNotification = $notification_data->custom_id;
+					$orderStatusFromNotification = $notification_data->status->current;
+				}
 
-			    $order = new Order($orderIdFromNotification);
-			 
-			    if (Configuration::get('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE')) {
-					switch($orderStatusFromNotification) {
+				$order = new Order($orderIdFromNotification);
+
+				if (Configuration::get('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE')) {
+					switch ($orderStatusFromNotification) {
 						case 'paid':
 							$this->updateOrderHistory($orderIdFromNotification, Configuration::get('GERENCIANET_CHARGE_CODE_PAID'));
 							break;
@@ -234,23 +234,22 @@ class Gerencianet extends PaymentModule
 							$this->updateOrderHistory($orderIdFromNotification, Configuration::get('GERENCIANET_CHARGE_CODE_CANCELLED'));
 							break;
 						default:
-							
+
 							break;
 					}
 				}
-				
 			} else {
 				if (Configuration::get('GERENCIANET_DEBUG')) {
-					$this->GerencianetLog( 'GERENCIANET :: notification Request : FAIL ' );
+					$this->GerencianetLog('GERENCIANET :: notification Request : FAIL ');
 				}
 			}
 		}
-		
+
 		exit();
-    }
+	}
 
 
-    private function updateOrderHistory($id_order, $status)
+	private function updateOrderHistory($id_order, $status)
 	{
 		if (Configuration::get('GERENCIANET_PAYMENT_NOTIFICATION_UPDATE_NOTIFY')) {
 			$mail = true;
@@ -261,64 +260,62 @@ class Gerencianet extends PaymentModule
 		$history = new OrderHistory();
 		$history->id_order = (Integer)$id_order;
 		$history->changeIdOrderState((Integer)$status, (Integer)$id_order, true);
-		if ($mail)
-		{
+		if ($mail) {
 			$extra_vars = array();
 			$history->addWithemail(true, $extra_vars);
 		}
-		
 	}
 
-    private function findOrderStates($lang_id)
-    {
-        $sql = 'SELECT DISTINCT osl.`id_lang`, osl.`name`
+	private function findOrderStates($lang_id)
+	{
+		$sql = 'SELECT DISTINCT osl.`id_lang`, osl.`name`
             FROM `' . _DB_PREFIX_ . 'order_state` os
             INNER JOIN `' .
-             _DB_PREFIX_ . 'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state`)
-            WHERE osl.`id_lang` = '."$lang_id".' AND osl.`name` in ("Nova Cobrança","Aguardando pagamento",
+			_DB_PREFIX_ . 'order_state_lang` osl ON (os.`id_order_state` = osl.`id_order_state`)
+            WHERE osl.`id_lang` = ' . "$lang_id" . ' AND osl.`name` in ("Nova Cobrança","Aguardando pagamento",
             "Pagamento Confirmado", "Não Pago","Pagamento devolvido","Pagamento em processo de contestação","Cancelada") AND os.`id_order_state` <> 6';
-        
-        return (Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql));
-    }
 
-    private function checkIfOrderStatusExists($id_lang, $status_name, $list_states)
-    {
-        
-        if (Tools::isEmpty($list_states) or empty($list_states) or ! isset($list_states)) {
-            return true;
-        }
-        
-        $save = true;
-        foreach ($list_states as $state) {
-            
-            if ($state['id_lang'] == $id_lang && $state['name'] == $status_name) {
-                $save = false;
-                break;
-            }
-        }
+		return (Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql));
+	}
 
-        return $save;
-    }
+	private function checkIfOrderStatusExists($id_lang, $status_name, $list_states)
+	{
 
-    private function returnIdOrderByStatusGerencianet($nome_status)
-    {
-        
-        $isDeleted = version_compare(_PS_VERSION_, '1.5', '<') ? '' : 'WHERE deleted = 0';
-        
-        $sql = 'SELECT distinct os.`id_order_state`
+		if (Tools::isEmpty($list_states) or empty($list_states) or !isset($list_states)) {
+			return true;
+		}
+
+		$save = true;
+		foreach ($list_states as $state) {
+
+			if ($state['id_lang'] == $id_lang && $state['name'] == $status_name) {
+				$save = false;
+				break;
+			}
+		}
+
+		return $save;
+	}
+
+	private function returnIdOrderByStatusGerencianet($nome_status)
+	{
+
+		$isDeleted = version_compare(_PS_VERSION_, '1.5', '<') ? '' : 'WHERE deleted = 0';
+
+		$sql = 'SELECT distinct os.`id_order_state`
             FROM `' . _DB_PREFIX_ . 'order_state` os
             INNER JOIN `' . _DB_PREFIX_ . 'order_state_lang` osl
             ON (os.`id_order_state` = osl.`id_order_state` AND osl.`name` = \'' .
-             pSQL($nome_status) . '\')' . $isDeleted;
-        
-        $id_order_state = (Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql));
-        
-        return $id_order_state[0]['id_order_state'];
-    }
+			pSQL($nome_status) . '\')' . $isDeleted;
 
-    private function createTables()
-    {
-        $sql = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'gerencianet_charge` (
+		$id_order_state = (Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql));
+
+		return $id_order_state[0]['id_order_state'];
+	}
+
+	private function createTables()
+	{
+		$sql = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'gerencianet_charge` (
             `id` int(11) unsigned NOT NULL auto_increment,
             `id_charge` varchar(255) NOT NULL,
             `id_order` int(10) unsigned NOT NULL ,
@@ -327,47 +324,44 @@ class Gerencianet extends PaymentModule
             `charge_data` varchar(255) NOT NULL ,
             PRIMARY KEY  (`id`)
             ) ENGINE=' . _MYSQL_ENGINE_ .
-            ' DEFAULT CHARSET=utf8  auto_increment=1;';
-        
-        if (! Db::getInstance()->Execute($sql)) {
-            return false;
-        }
-        return true;
-    }
-    
+			' DEFAULT CHARSET=utf8  auto_increment=1;';
+
+		if (!Db::getInstance()->Execute($sql)) {
+			return false;
+		}
+		return true;
+	}
+
 	protected function _postValidation()
 	{
-		if (Tools::isSubmit('btnSubmit'))
-		{
-            $gerencianet_sandbox = Tools::getValue('gerencianet_sandbox');
-            $gerencianet_payment_option_billet = Tools::getValue('gerencianet_payment_option_billet');
-            $gerencianet_payment_option_card = Tools::getValue('gerencianet_payment_option_card');
-            $gerencianet_billet_days_to_expire = Tools::getValue('gerencianet_billet_days_to_expire');
-            $gerencianet_discount_billet_value = Tools::getValue('gerencianet_discount_billet_value');
-            $gerencianet_payment_notification_update = Tools::getValue('gerencianet_payment_notification_update');
-            $gerencianet_payment_notification_update_notify = Tools::getValue('gerencianet_payment_notification_update_notify');
-            $gerencianet_status = Tools::getValue('gerencianet_status');
-            $gerencianet_client_id_production = Tools::getValue('gerencianet_client_id_production');
-            $gerencianet_client_secret_production = Tools::getValue('gerencianet_client_secret_production');
-            $gerencianet_client_id_development = Tools::getValue('gerencianet_client_id_development');
-            $gerencianet_client_secret_development = Tools::getValue('gerencianet_client_secret_development');
-            $gerencianet_payee_code = Tools::getValue('gerencianet_payee_code');
-            $gerencianet_debug = Tools::getValue('gerencianet_debug');
-            $gerencianet_checkout_type = Tools::getValue('gerencianet_checkout_type');
+		if (Tools::isSubmit('btnSubmit')) {
+			$gerencianet_sandbox = Tools::getValue('gerencianet_sandbox');
+			$gerencianet_payment_option_billet = Tools::getValue('gerencianet_payment_option_billet');
+			$gerencianet_payment_option_card = Tools::getValue('gerencianet_payment_option_card');
+			$gerencianet_billet_days_to_expire = Tools::getValue('gerencianet_billet_days_to_expire');
+			$gerencianet_discount_billet_value = Tools::getValue('gerencianet_discount_billet_value');
+			$gerencianet_payment_notification_update = Tools::getValue('gerencianet_payment_notification_update');
+			$gerencianet_payment_notification_update_notify = Tools::getValue('gerencianet_payment_notification_update_notify');
+			$gerencianet_status = Tools::getValue('gerencianet_status');
+			$gerencianet_client_id_production = Tools::getValue('gerencianet_client_id_production');
+			$gerencianet_client_secret_production = Tools::getValue('gerencianet_client_secret_production');
+			$gerencianet_client_id_development = Tools::getValue('gerencianet_client_id_development');
+			$gerencianet_client_secret_development = Tools::getValue('gerencianet_client_secret_development');
+			$gerencianet_payee_code = Tools::getValue('gerencianet_payee_code');
+			$gerencianet_debug = Tools::getValue('gerencianet_debug');
+			$gerencianet_checkout_type = Tools::getValue('gerencianet_checkout_type');
 
-            if (!$gerencianet_client_id_production || !$gerencianet_client_secret_production || !$gerencianet_client_id_development || !$gerencianet_client_secret_development) {
-                $this->_postErrors[] = $this->l('Módulo inativo: Credenciais inválidas. Digite novamente.');
-            } elseif (!$gerencianet_payee_code) {
-                $this->_postErrors[] = $this->l('Módulo inativo: Identificador da conta inválido. Digite novamente.');
-            }
-            
+			if (!$gerencianet_client_id_production || !$gerencianet_client_secret_production || !$gerencianet_client_id_development || !$gerencianet_client_secret_development) {
+				$this->_postErrors[] = $this->l('Módulo inativo: Credenciais inválidas. Digite novamente.');
+			} elseif (!$gerencianet_payee_code) {
+				$this->_postErrors[] = $this->l('Módulo inativo: Identificador da conta inválido. Digite novamente.');
+			}
 		}
 	}
 
 	protected function _postProcess()
 	{
-		if (Tools::isSubmit('btnSubmit'))
-		{
+		if (Tools::isSubmit('btnSubmit')) {
 			Configuration::updateValue('GERENCIANET_SANDBOX', Tools::getValue('gerencianet_sandbox'));
 			Configuration::updateValue('GERENCIANET_PAYMENT_OPTION_BILLET', Tools::getValue('gerencianet_payment_option_billet'));
 			Configuration::updateValue('GERENCIANET_PAYMENT_OPTION_CARD', Tools::getValue('gerencianet_payment_option_card'));
@@ -392,23 +386,92 @@ class Gerencianet extends PaymentModule
 		return $this->display(__FILE__, 'infos.tpl');
 	}
 
+	protected function _displayCheckTlsGerencianet()
+	{
+		return $this->display(__FILE__, 'check_tls.tpl');
+	}
+
 	public function getContent()
 	{
-		if (Tools::isSubmit('btnSubmit'))
-		{
+		if (Tools::isSubmit('btnSubmit')) {
 			$this->_postValidation();
 			if (!count($this->_postErrors))
 				$this->_postProcess();
 			else
 				foreach ($this->_postErrors as $err)
 					$this->_html .= $this->displayError($err);
-		} else if (true == false) {
-
-		}
-		else
+		} else if (true == false) { } else
 			$this->_html .= '<br />';
 
+
+
 		$this->_html .= $this->_displayGerencianet();
+
+		$ch = curl_init();
+		$options = array(
+			CURLOPT_URL         => "https://tls.testegerencianet.com.br",
+			CURLOPT_RETURNTRANSFER         => true,
+			CURLOPT_FOLLOWLOCATION         => true,
+			CURLOPT_HEADER         => false,  // don't return headers
+			CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+			CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+			CURLOPT_CONNECTTIMEOUT => 5,    // time-out on connect
+			CURLOPT_TIMEOUT        => 5,    // time-out on response
+		);
+		curl_setopt_array($ch, $options);
+		$content = curl_exec($ch);
+		$info = curl_getinfo($ch);
+
+
+
+		if (($info['http_code'] !== 200) && ($content !== 'Gerencianet_Connection_TLS1.2_OK!')) {
+			$this->tlsOk = false;
+			$this->_html .= $this->_displayCheckTlsGerencianet();
+		} else {
+			$this->tlsOk = true;
+			if (isset($_COOKIE["gnTestTlsLog"])) {
+				setcookie("gnTestTlsLog", false, time() - 1);
+			}
+		}
+		curl_close($ch);
+
+		if (!$this->tlsOk && !isset($_COOKIE["gnTestTlsLog"])) {
+			setcookie("gnTestTlsLog", true);
+			// register log
+
+			$account = Configuration::get('GERENCIANET_PAYEE_CODE');
+			$ip = $_SERVER['SERVER_ADDR'];
+			$modulo = 'prestashop';
+			$control = md5($account . $ip . 'modulologs-tls');
+			$data = array(
+				'user_agent' => $_SERVER['HTTP_USER_AGENT'],
+				'modulo' => $modulo,
+			);
+			$post = array(
+				'control' => $control,
+				'account' => $account,
+				'ip' => $ip,
+				'origin' => 'modulo',
+				'data' => json_encode($data)
+			);
+			$ch1 = curl_init();
+			$options1 = array(
+				CURLOPT_URL         => "https://fortunus.gerencianet.com.br/logs/tls",
+				CURLOPT_RETURNTRANSFER         => true,
+				CURLOPT_FOLLOWLOCATION         => true,
+				CURLOPT_HEADER         => true,  // don't return headers
+				CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+				CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+				CURLOPT_CONNECTTIMEOUT => 5,    // time-out on connect
+				CURLOPT_TIMEOUT        => 5,    // time-out on response
+				CURLOPT_POST        => true,
+				CURLOPT_POSTFIELDS        => json_encode($post),
+			);
+			curl_setopt_array($ch1, $options1);
+			$content1 = curl_exec($ch1);
+			$info1 = curl_getinfo($ch1);
+			curl_close($ch1);
+		}
 		$this->_html .= $this->renderForm();
 
 		return $this->_html;
@@ -417,13 +480,13 @@ class Gerencianet extends PaymentModule
 	public function hookPayment($params)
 	{
 		$checkout_type = Configuration::get('GERENCIANET_CHECKOUT_TYPE');
-		if ($checkout_type=="1") {
+		if ($checkout_type == "1") {
 			$checkout_type_selected = "OSC";
 		} else {
 			$checkout_type_selected = "default";
 		}
 
-		if ($checkout_type_selected=="OSC") {
+		if ($checkout_type_selected == "OSC") {
 			$cart = $this->context->cart;
 			$customer_fields = $this->context->customer->getFields();
 
@@ -432,24 +495,24 @@ class Gerencianet extends PaymentModule
 			if (!$this->checkCurrency($params['cart']))
 				return;
 
-			$billet_discount = floatval(preg_replace( '/[^0-9.]/', '', str_replace(",",".",Configuration::get('GERENCIANET_DISCOUNT_BILLET_VALUE'))));
-	    	$billet_discount_formatted = str_replace(".",",",$billet_discount);
+			$billet_discount = floatval(preg_replace('/[^0-9.]/', '', str_replace(",", ".", Configuration::get('GERENCIANET_DISCOUNT_BILLET_VALUE'))));
+			$billet_discount_formatted = str_replace(".", ",", $billet_discount);
 
-	    	$total_order_gn_formatted = GerencianetIntegration::priceFormat($cart->getOrderTotal(true));
-	    	$total_order_pay_with_billet_gn_formatted = (int) ($total_order_gn_formatted * (1-($billet_discount/100)));
-	    	$total_discount = $total_order_gn_formatted - $total_order_pay_with_billet_gn_formatted;
-	    	$total_discount_formatted = GerencianetIntegration::formatCurrencyBRL($total_discount);
+			$total_order_gn_formatted = GerencianetIntegration::priceFormat($cart->getOrderTotal(true));
+			$total_order_pay_with_billet_gn_formatted = (int)($total_order_gn_formatted * (1 - ($billet_discount / 100)));
+			$total_discount = $total_order_gn_formatted - $total_order_pay_with_billet_gn_formatted;
+			$total_discount_formatted = GerencianetIntegration::formatCurrencyBRL($total_discount);
 
-	    	$actual_year = intval(date("Y")); 
-	        $last_year = $actual_year + 15;
-	        $list_years = "";
-	        for ($i = $actual_year; $i <= $last_year; $i++) {
-	            $list_years .= '<option value="'.$i.'"> '.$i.' </option>';
-	        }
+			$actual_year = intval(date("Y"));
+			$last_year = $actual_year + 15;
+			$list_years = "";
+			for ($i = $actual_year; $i <= $last_year; $i++) {
+				$list_years .= '<option value="' . $i . '"> ' . $i . ' </option>';
+			}
 
-	        $address_invoice = new Address((Integer)$cart->id_address_invoice);
+			$address_invoice = new Address((Integer)$cart->id_address_invoice);
 
-	        if (isset($customer_fields['document'])) {
+			if (isset($customer_fields['document'])) {
 				$cpf = $customer_fields['document'];
 			} else if (isset($customer_fields['cpf'])) {
 				$cpf = $customer_fields['cpf'];
@@ -458,9 +521,9 @@ class Gerencianet extends PaymentModule
 			}
 
 			if (isset($customer_fields['birthday'])) {
-				$birthdate_formatted = explode("-",$customer_fields['birthday']);
-				$birthdate = $birthdate_formatted[2]."/".$birthdate_formatted[1]."/".$birthdate_formatted[0];
-				if (strlen($birthdate)!=10) {
+				$birthdate_formatted = explode("-", $customer_fields['birthday']);
+				$birthdate = $birthdate_formatted[2] . "/" . $birthdate_formatted[1] . "/" . $birthdate_formatted[0];
+				if (strlen($birthdate) != 10) {
 					$birthdate = "";
 				}
 			} else {
@@ -468,36 +531,36 @@ class Gerencianet extends PaymentModule
 			}
 
 			if (isset($address_invoice->id_state)) {
-	    		$billing_state = State::getNameById($address_invoice->id_state);
-	    	} else {
+				$billing_state = State::getNameById($address_invoice->id_state);
+			} else {
 				$billing_state = "";
-	    	}
+			}
 
-	    	if (isset($address_invoice->address3)) {
-	    		$billing_complement = $address_invoice->address3;
-	    	} else {
+			if (isset($address_invoice->address3)) {
+				$billing_complement = $address_invoice->address3;
+			} else {
 				$billing_complement = "";
-	    	}
+			}
 
-	    	if (isset($address_invoice->address4)) {
-	    		$billing_number = $address_invoice->address4;
-	    	} else {
+			if (isset($address_invoice->address4)) {
+				$billing_number = $address_invoice->address4;
+			} else {
 				$billing_number = "";
-	    	}
+			}
 
-			if( isset($_SERVER['HTTPS'] ) ) {
-	    		$base_url_dir = Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/gerencianet/';
-	    	} else {
-	    		$base_url_dir = Tools::getShopDomain(true, true).__PS_BASE_URI__.'modules/gerencianet/';
-	    	}
+			if (isset($_SERVER['HTTPS'])) {
+				$base_url_dir = Tools::getShopDomainSsl(true, true) . __PS_BASE_URI__ . 'modules/gerencianet/';
+			} else {
+				$base_url_dir = Tools::getShopDomain(true, true) . __PS_BASE_URI__ . 'modules/gerencianet/';
+			}
 
-	    	if (Configuration::get('PS_SSL_ENABLED') || (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off')) {
-	    		$base_url_dir = str_replace("http://","https://",$base_url_dir);
-	    	}
+			if (Configuration::get('PS_SSL_ENABLED') || (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off')) {
+				$base_url_dir = str_replace("http://", "https://", $base_url_dir);
+			}
 
-	    	$gnIntegration = new GerencianetIntegration(Configuration::get('GERENCIANET_CLIENT_ID_PROD'),Configuration::get('GERENCIANET_CLIENT_SECRET_PROD'),Configuration::get('GERENCIANET_CLIENT_ID_DEV'),Configuration::get('GERENCIANET_CLIENT_SECRET_DEV'),Configuration::get('GERENCIANET_SANDBOX'),Configuration::get('GERENCIANET_PAYEE_CODE'));
+			$gnIntegration = new GerencianetIntegration(Configuration::get('GERENCIANET_CLIENT_ID_PROD'), Configuration::get('GERENCIANET_CLIENT_SECRET_PROD'), Configuration::get('GERENCIANET_CLIENT_ID_DEV'), Configuration::get('GERENCIANET_CLIENT_SECRET_DEV'), Configuration::get('GERENCIANET_SANDBOX'), Configuration::get('GERENCIANET_PAYEE_CODE'));
 
-	    	$max_installments = $gnIntegration->max_installments($total_order_gn_formatted);
+			$max_installments = $gnIntegration->max_installments($total_order_gn_formatted);
 
 
 			$this->smarty->assign(array(
@@ -506,7 +569,7 @@ class Gerencianet extends PaymentModule
 				'total' => $cart->getOrderTotal(true, Cart::BOTH),
 				'this_path' => $this->_path,
 				'this_path_bw' => $this->_path,
-				'this_path_ssl' => Tools::getShopDomainSsl(true, true).__PS_BASE_URI__.'modules/'.$this->name.'/',
+				'this_path_ssl' => Tools::getShopDomainSsl(true, true) . __PS_BASE_URI__ . 'modules/' . $this->name . '/',
 				'width_center_column' => '100%',
 				'payee_code' => Configuration::get('GERENCIANET_PAYEE_CODE'),
 				'sandbox' => Configuration::get('GERENCIANET_SANDBOX'),
@@ -558,7 +621,7 @@ class Gerencianet extends PaymentModule
 
 		$payment_options = array(
 			'cta_text' => $this->l('Pague com a Gerencianet'),
-			'logo' => Media::getMediaPath(_PS_MODULE_DIR_.$this->name.'/gerencianet.jpg'),
+			'logo' => Media::getMediaPath(_PS_MODULE_DIR_ . $this->name . '/gerencianet.jpg'),
 			'action' => $this->context->link->getModuleLink($this->name, 'validation', array(), true)
 		);
 
@@ -569,7 +632,7 @@ class Gerencianet extends PaymentModule
 	{
 		if (!$this->active)
 			return;
-		
+
 		$state = $params['objOrder']->getCurrentState();
 
 		$this->smarty->assign(array(
@@ -577,7 +640,7 @@ class Gerencianet extends PaymentModule
 			'gerencianetDetails' => Tools::nl2br($this->details),
 			'gerencianetAddress' => Tools::nl2br($this->address),
 			'gerencianetOwner' => $this->owner,
-			'this_path' => Media::getMediaPath(_PS_MODULE_DIR_.$this->name.'/'),
+			'this_path' => Media::getMediaPath(_PS_MODULE_DIR_ . $this->name . '/'),
 			'status' => 'ok',
 			'id_order' => $params['objOrder']->id,
 			'charge_type' => Tools::getValue('charge_type'),
@@ -605,7 +668,7 @@ class Gerencianet extends PaymentModule
 	public function renderForm()
 	{
 
-		if ((Configuration::get('GERENCIANET_PAYMENT_OPTION_BILLET')=="1" || Configuration::get('GERENCIANET_PAYMENT_OPTION_CARD')=="1") && Configuration::get('GERENCIANET_STATUS')=="1" &&  Configuration::get('GERENCIANET_CLIENT_ID_PROD')!="" && Configuration::get('GERENCIANET_CLIENT_SECRET_PROD')!="" && Configuration::get('GERENCIANET_CLIENT_ID_DEV')!="" && Configuration::get('GERENCIANET_CLIENT_SECRET_DEV')!="" && Configuration::get('GERENCIANET_PAYEE_CODE')!="") {
+		if ((Configuration::get('GERENCIANET_PAYMENT_OPTION_BILLET') == "1" || Configuration::get('GERENCIANET_PAYMENT_OPTION_CARD') == "1") && Configuration::get('GERENCIANET_STATUS') == "1" &&  Configuration::get('GERENCIANET_CLIENT_ID_PROD') != "" && Configuration::get('GERENCIANET_CLIENT_SECRET_PROD') != "" && Configuration::get('GERENCIANET_CLIENT_ID_DEV') != "" && Configuration::get('GERENCIANET_CLIENT_SECRET_DEV') != "" && Configuration::get('GERENCIANET_PAYEE_CODE') != "") {
 			$active = "yes";
 		} else {
 			$active = "no";
@@ -629,7 +692,7 @@ class Gerencianet extends PaymentModule
 		$this->context->smarty->assign('gerencianet_payee_code', Configuration::get('GERENCIANET_PAYEE_CODE'));
 		$this->context->smarty->assign('gerencianet_debug', Configuration::get('GERENCIANET_DEBUG'));
 		$this->context->smarty->assign('gerencianet_active', $active);
-		
+
 		return $this->display(__PS_BASE_URI__ . 'modules/gerencianet', 'views/templates/front/admin_gerencianet.tpl');
 	}
 
@@ -654,7 +717,8 @@ class Gerencianet extends PaymentModule
 		);
 	}
 
-	private function GerencianetLog($msg){
-        PrestaShopLogger::addLog('DEBUG :: '.$msg, 0 , null);	
+	private function GerencianetLog($msg)
+	{
+		PrestaShopLogger::addLog('DEBUG :: ' . $msg, 0, null);
 	}
 }
