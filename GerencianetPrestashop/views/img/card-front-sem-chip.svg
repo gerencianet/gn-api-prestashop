@@ -1,0 +1,194 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 251 159" width="479" height="303">
+	<title>testebonitinho-svg</title>
+	<defs>
+		<linearGradient id="g1" x1="125.1" y1="89.3" x2="117.5" y2="223.2" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g2" x1="153.1" y1="141.1" x2="105.1" y2="34.1" gradientUnits="userSpaceOnUse">
+			<stop offset=".4" stop-color="#ec6608"/>
+			<stop offset=".5" stop-color="#e86508"/>
+			<stop offset=".6" stop-color="#dd6007"/>
+			<stop offset=".6" stop-color="#ca5905"/>
+			<stop offset=".7" stop-color="#af4e02"/>
+			<stop offset=".7" stop-color="#ac4d02"/>
+		</linearGradient>
+		<linearGradient id="g3" x1="134.3" y1="89.8" x2="92.2" y2="41.4" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g4" x1="130.3" y1="113.1" x2="105.7" y2="-61.2" gradientUnits="userSpaceOnUse">
+			<stop offset=".2" stop-color="#ec6608"/>
+			<stop offset=".5" stop-color="#e96508"/>
+			<stop offset=".6" stop-color="#df6107"/>
+			<stop offset=".8" stop-color="#cf5a05"/>
+			<stop offset=".9" stop-color="#b75103"/>
+			<stop offset="1" stop-color="#ac4d02"/>
+		</linearGradient>
+		<linearGradient id="g5" x1="177.5" y1="75.8" x2="59.7" y2="147.6" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity=".2"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g6" x1="170.5" y1="84.7" x2="177.3" y2="152.4" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ec6608"/>
+			<stop offset=".4" stop-color="#e96508"/>
+			<stop offset=".6" stop-color="#e06207"/>
+			<stop offset=".8" stop-color="#d15c06"/>
+			<stop offset=".9" stop-color="#bc5404"/>
+			<stop offset="1" stop-color="#b55103"/>
+		</linearGradient>
+		<linearGradient id="g7" x1="85" y1="133.2" x2="265.8" y2="133.2" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g8" x1="188.6" y1="100.3" x2="188.6" y2="159" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ec6608"/>
+			<stop offset=".4" stop-color="#ea6508"/>
+			<stop offset=".6" stop-color="#e36307"/>
+			<stop offset=".8" stop-color="#d75e06"/>
+			<stop offset=".9" stop-color="#c65704"/>
+			<stop offset="1" stop-color="#b04e02"/>
+			<stop offset="1" stop-color="#a24901"/>
+		</linearGradient>
+		<linearGradient id="g9" x1="111.5" y1="143.7" x2="265.8" y2="143.7" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f39200" stop-opacity=".4"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g10" x1="162.3" y1="150.4" x2="163.5" y2="183.6" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ec6608"/>
+			<stop offset=".3" stop-color="#e96508"/>
+			<stop offset=".6" stop-color="#df6107"/>
+			<stop offset=".8" stop-color="#ce5b05"/>
+			<stop offset="1" stop-color="#b75203"/>
+			<stop offset="1" stop-color="#b55103"/>
+		</linearGradient>
+		<linearGradient id="g11" x1="58" y1="140.5" x2="265.8" y2="140.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f39200" stop-opacity=".3"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g12" x1="112.5" y1="69.4" x2="30.4" y2="3.7" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g13" x1="125" y1="77.3" x2="105.4" y2="1.6" gradientUnits="userSpaceOnUse">
+			<stop offset=".2" stop-color="#ec6608"/>
+			<stop offset=".4" stop-color="#e66407"/>
+			<stop offset=".7" stop-color="#d45d06"/>
+			<stop offset="1" stop-color="#b75203"/>
+			<stop offset="1" stop-color="#b55103"/>
+		</linearGradient>
+		<linearGradient id="g14" x1="146.3" y1="74.5" x2="202.6" y2="32.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity=".2"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g15" x1="88.1" y1="62.3" x2="33.7" y2="-9.8" gradientUnits="userSpaceOnUse">
+			<stop offset=".2" stop-color="#ec6608"/>
+			<stop offset=".5" stop-color="#cc5905"/>
+			<stop offset=".8" stop-color="#b55003"/>
+			<stop offset="1" stop-color="#ac4d02"/>
+		</linearGradient>
+		<linearGradient id="g16" x1="78.7" y1="40.3" x2="109.4" y2="89.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g17" x1="33.9" y1="62.5" x2="5.3" y2="27.9" gradientUnits="userSpaceOnUse">
+			<stop offset=".3" stop-color="#ec6608"/>
+			<stop offset=".5" stop-color="#dc6007"/>
+			<stop offset=".8" stop-color="#b55103"/>
+		</linearGradient>
+		<linearGradient id="g18" x1="22.3" y1="58.5" x2="44.6" y2="76.6" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g19" x1="32.3" y1="59.1" x2="-34" y2="20.6" gradientUnits="userSpaceOnUse">
+			<stop offset=".2" stop-color="#ec6608"/>
+			<stop offset=".4" stop-color="#e26207"/>
+			<stop offset=".7" stop-color="#c75704"/>
+			<stop offset=".9" stop-color="#ac4d02"/>
+		</linearGradient>
+		<linearGradient id="g20" x1="4.2" y1="40.1" x2="46.7" y2="67.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<linearGradient id="g21" x1="17.4" y1="4.6" x2="-15.6" y2="-27.7" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ec6608"/>
+			<stop offset=".2" stop-color="#e76408"/>
+			<stop offset=".5" stop-color="#d85e06"/>
+			<stop offset=".8" stop-color="#c05504"/>
+			<stop offset="1" stop-color="#ac4d02"/>
+		</linearGradient>
+		<linearGradient id="g22" x1="27.3" y1="-2.7" x2="31.7" y2="24.1" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity=".1"/>
+			<stop offset="1" stop-color="#ec6608"/>
+		</linearGradient>
+		<image width="3938" height="3010" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAD2IAAAvCCAMAAAAUmEfuAAAAAXNSR0IB2cksfwAAAGBQTFRFAAAA6eXl6ubm5ubq6enp5ubm7Ozs6enp6+vr7Ozs7e3t5+fn4+Pj5OTk5OTk4+Pj29vb6ubq5eXl5+fr5+Pn5urm5eXp5Ovk2+3b7e3b4+fn4+Pn7dvt29vt7dvb5OTrsNO0GQAAACB0Uk5TADs+Pjs+Ni8mGw4/Ni8mGw4+Oz82PjsmDg42Ng4ODiYRZ1xLAAAxhUlEQVR4nOzd607bMBgAUAYNBUbbjN3Y3v9BF1+SOI67olVTVOkcCTWJv4udts4PJLj7Pz7dP+y6rgs/4eUx2EXxcLZPI+PRFBbF3MqUmOLr4TlmrHdWazrV5P5aYzeM54B9OIxS2jRwofz+KQjR5dzHWnPF5Upz4jLscsf1XTp3PkZPMxyb5ZPS3Lc1OiefHVw0GIql9q21TYsubmBZub4h2aXOF2ZUvq1p4Dl5eXnJR89ncj/WJZZenFSZ1fnU7sNNQkzX/qJ2j7FkDlq2Wa/tQ/d0EVCkr96o8yUat/Sf38Yy+arPw4WbMH8ww8GZL2WZW5epS46j68/y/mneZ1Kz1qc2BRV7Wf29iNNr7iDllXGLnL6fzfWELWzcMcPOXezT9Y0YF7WcX9hEy+24ubEv9uv50TBGNx4XjfS6WDEc84cL8alVTWK48nmQnmjpsRbjiwtZCIuWV+frcWQ6Ki5XmeMzsKwZM1adlg3T8a453OrYvQ7y6uZpLuPWDZfr6mKR1+GlXHKRk8NeDzEuhR6C4/EYXw/H0yAfH2JYHl6KQ6FbjD/lmJhbBuU+RYUYvioXr5YjKX640GdhLIfkieWSU2rU980d9hTzi+gcFksPL/lsnkGqNbUOGmX7nDnUGMJibJGQSox1+9NdswYAN+H+/svb227rWQAAAMCN+vpw+Lb1HAAAAOCGfX/70f3cehIAAABww45377+2ngMAAADctNNvfzIDAAAAAAAAgE31R7+5BgAAgCu9bz0BAAAAAAAAAAAAAAAAAAAAAAAAAAAAACDwf7kAAADgev3WEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4A97cCAAAAAAAOT/2giqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwh4cCAAAAAAA+b82gqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqwBwcCAAAAAED+r42gqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqKuzBgQAAAAAAkP9rI6iqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqoKu3MsAAAAgABMIX/aMDraCAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8yzoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQ9u5tt00YDADwVa4aDpeT1m7v/5bDYBM7hqYbmdyg75PSBB9+/0GAhZw0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcx9A6AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaGlonAAAAAAAAAACRNWwAAAAAAAAAAAAAgDPxKXEAAAB4hp+tEwAAAIBTsIYNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMB/Nr63zgAAAAAAAAAAZkPrBAAAAAAAAABgZgUbAAAAnmFsnQAAAACcwUfrBAAAAOAERivYAAAA8ARusAEAAAAAAAD4FixgAwAAAAAAAAAAAACcxtA6AQAAAAAAAACY9a0TAAAAAAAAAAAAAAAAAAAAAAAAAM7Ej3QBAAAAAAAAAAAAAJxF1zoBAAAAeH392DoDAAAAeH1D51+cAQAAwGG/WicAAAAAJ2D5GgAAAI4bf7TOAAAAAE7AAjYAAAAc5vYaAAAADvPzXAAAAHDc8NE6AwAAAHh5o4+HAwAAwGFWrwEAAOAwy9cAAABwVP/h9hoAAAAO+v3eOgMAAAB4fRavAQAA4CA31wAAAHDQ4O4aAAAAjhrH1hkAAADAa3NrDQAAAAAAAAAAAAAAADw0jsO4+Grrr32dKQaN0R/HTWnshCmqhsXUpzKXhWDhaU4rhA5Fmax1vjVt1wGL2FV9Xz718UWqLQqWrb7LykLRfaeyw271UtVN0eYm69Nad0vrE3n4NNwS+BpCLxHyJIpG67i7Un5ZyaeNynhha0mkKJ33Ydamm03tgs3RutCpGrFsXqdaNN1/E2Ej1U8DhZTuQy3bWwnu7cel7fSugvtEix0WN26xU9c1RFWwhAyP5QCY8qsaxEHv+3b9dbhMxZe9M/naX6fIc4TJJb0ozfWXpTIOlzrE0nUzr3l7m/5ciiy3glf16fUULMRLbytru77p9REHjk/VbohdtstvO2sn0wfd7oJkR0R+LOy0DKfHNR1rZe/boXC/o1P36jLwzzYO8qkwnK2bJ8Bf2h9t70IXBq+urDu90n6soqzX/3hlfKSYW7amq3weqWanIk4xga1tssbLFBrbZZNbmDiLjvUIU4My0SzM5gT8YCaPM28a9uE3ob8W2demv48/bJ+4W9X2HWsAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		.s0 { fill: #ffffff } 
+		.s1 { fill: #f7fbfc } 
+		.s2 { opacity: .5;mix-blend-mode: multiply;fill: url(#g1) } 
+		.s3 { mix-blend-mode: multiply;fill: url(#g2) } 
+		.s4 { opacity: .5;mix-blend-mode: multiply;fill: url(#g3) } 
+		.s5 { fill: url(#g4) } 
+		.s6 { opacity: .5;mix-blend-mode: color;fill: url(#g5) } 
+		.s7 { fill: url(#g6) } 
+		.s8 { opacity: .5;mix-blend-mode: color;fill: url(#g7) } 
+		.s9 { mix-blend-mode: multiply;fill: url(#g8) } 
+		.s10 { opacity: .5;mix-blend-mode: color;fill: url(#g9) } 
+		.s11 { mix-blend-mode: multiply;fill: url(#g10) } 
+		.s12 { opacity: .5;mix-blend-mode: color;fill: url(#g11) } 
+		.s13 { opacity: .5;mix-blend-mode: multiply;fill: url(#g12) } 
+		.s14 { fill: url(#g13) } 
+		.s15 { opacity: .5;mix-blend-mode: color;fill: url(#g14) } 
+		.s16 { fill: url(#g15) } 
+		.s17 { opacity: .5;mix-blend-mode: color;fill: url(#g16) } 
+		.s18 { fill: url(#g17) } 
+		.s19 { opacity: .5;mix-blend-mode: color;fill: url(#g18) } 
+		.s20 { fill: url(#g19) } 
+		.s21 { opacity: .5;mix-blend-mode: color;fill: url(#g20) } 
+		.s22 { fill: url(#g21) } 
+		.s23 { opacity: .5;mix-blend-mode: color;fill: url(#g22) } 
+		.s24 { mix-blend-mode: color;fill: #ff671d } 
+	</style>
+	<g id="Layer">
+		<path id="Layer" class="s0" d="M -14.2 -13.7 h 279.6 v 187.2 h -279.6 z" />
+		<path id="Layer" class="s1" d="M -14.6 -13.6 h 280.4 v 186.9 h -280.4 z" />
+		<path id="Layer" class="s2" d="M -14.6 -13.6 h 280.4 v 186.9 h -280.4 z" />
+		<path id="Layer" class="s3" d="M -14.6 -13.6 h 280.4 v 186.9 h -280.4 z" />
+		<path id="Layer" class="s1" d="M 265.8 -13.6 v 65.7 c -13.6 9.3 -31.3 13.5 -48 14.7 c -24.4 1.7 -49.3 -1.3 -72.9 4.8 c -29.5 7.6 -54.2 28.9 -71 54.4 c -10.6 16.1 -19 34.5 -33 47.3 h -55.5 v -186.9 z" />
+		<path id="Layer" class="s4" d="M 265.8 -13.6 v 65.7 c -13.6 9.3 -31.3 13.5 -48 14.7 c -24.4 1.7 -49.3 -1.3 -72.9 4.8 c -29.5 7.6 -54.2 28.9 -71 54.4 c -10.6 16.1 -19 34.5 -33 47.3 h -55.5 v -186.9 z" />
+		<path id="Layer" class="s5" d="M 265.8 -13.6 v 65.7 c -13.6 9.3 -31.3 13.5 -48 14.7 c -24.4 1.7 -49.3 -1.3 -72.9 4.8 c -29.5 7.6 -54.2 28.9 -71 54.4 c -10.6 16.1 -19 34.5 -33 47.3 h -55.5 v -186.9 z" />
+		<path id="Layer" class="s6" d="M 265.8 51.1 v 1 c -13.6 9.3 -31.3 13.5 -48 14.6 c -24.4 1.7 -49.3 -1.2 -72.9 4.8 c -29.5 7.6 -54.2 29 -71 54.4 c -10.6 16.1 -19 34.6 -33 47.4 h -1.3 c 14.6 -12.9 23.1 -31.7 33.9 -48.2 c 16.8 -25.4 41.5 -46.7 71 -54.3 c 23.6 -6.1 48.5 -3.1 72.9 -4.8 c 16.9 -1.1 34.8 -5.4 48.4 -14.9 z" />
+		<path id="Layer" class="s1" d="M 265.8 93 v 80.3 h -180.8 c 0.8 -13.5 3.3 -27.4 12 -37.7 q 0.7 -0.8 1.5 -1.7 q 0.8 -0.8 1.6 -1.6 q 0.9 -0.8 1.8 -1.5 q 0.9 -0.7 1.8 -1.4 q 0.4 -0.3 0.8 -0.6 c 12.4 -8.6 29.4 -10.4 44.9 -9 q 2.4 0.2 4.8 0.4 l 2.1 0.3 c 16.6 2.1 33.1 5.9 49.7 4.3 q 1 -0.1 2.1 -0.2 q 1 -0.1 2 -0.3 c 21.3 -3.2 40.8 -15.4 55.7 -31.3 z" />
+		<path id="Layer" class="s7" d="M 265.8 93 v 80.3 h -180.8 c 0.8 -13.5 3.3 -27.4 12 -37.7 q 0.7 -0.8 1.5 -1.7 q 0.8 -0.8 1.6 -1.6 q 0.9 -0.8 1.8 -1.5 q 0.9 -0.7 1.8 -1.4 q 0.4 -0.3 0.8 -0.6 c 12.4 -8.6 29.4 -10.4 44.9 -9 q 2.4 0.2 4.8 0.4 l 2.1 0.3 c 16.6 2.1 33.1 5.9 49.7 4.3 q 1 -0.1 2.1 -0.2 q 1 -0.1 2 -0.3 c 21.3 -3.2 40.8 -15.4 55.7 -31.3 z" />
+		<path id="Layer" class="s8" d="M 265.8 93 v 0.6 c -14.5 15.4 -33.2 27.3 -53.8 30.9 q -0.9 0.2 -1.8 0.3 q -2.1 0.4 -4.1 0.6 c -17.3 1.6 -34.5 -2.6 -51.8 -4.6 q -0.9 -0.2 -2 -0.2 c -1 -0.2 -1.9 -0.2 -2.9 -0.3 c -15.1 -1.3 -31.7 0.4 -44 8.5 l -0.9 0.6 q -1 0.7 -2 1.5 q -1 0.8 -1.9 1.6 q -1 0.9 -1.9 1.8 q -0.8 0.9 -1.7 1.9 c -8.5 10.1 -11.1 23.8 -12 37.1 h -0.1 c 0.8 -13.5 3.4 -27.4 12 -37.7 q 0.8 -0.8 1.6 -1.7 q 0.8 -0.8 1.6 -1.6 q 0.8 -0.8 1.7 -1.5 q 0.9 -0.7 1.8 -1.4 q 0.4 -0.3 0.8 -0.6 c 12.4 -8.6 29.5 -10.4 44.9 -9 q 2.5 0.2 4.9 0.4 l 2.1 0.3 c 16.6 2.1 33 5.9 49.6 4.3 q 1.1 -0.1 2.1 -0.2 q 1 -0.1 2 -0.3 c 21.4 -3.2 40.9 -15.4 55.8 -31.3 z" />
+		<path id="Layer" class="s1" d="M 265.8 114 v 59.3 h -154.3 c 0.8 -13.5 3.3 -27.4 12 -37.7 q 0.5 -0.5 0.9 -1 q 0.5 -0.5 1 -1 q 0.5 -0.5 1 -1 q 0.6 -0.5 1.1 -1 l 0.5 -0.4 c 6.8 -5.7 15.3 -9 24.4 -10.6 q 1 -0.2 1.9 -0.3 q 2.7 -0.4 5.4 -0.6 q 2.7 -0.2 5.4 -0.3 q 2.7 -0.1 5.4 0 q 2.8 0.1 5.5 0.4 c 11.4 1 22.7 3.3 34.1 4.5 l 2 0.3 q 2.5 0.2 5.1 0.4 q 2.5 0.2 5.1 0.2 q 2.6 0 5.1 0 q 2.6 -0.1 5.1 -0.3 q 2.4 -0.3 4.7 -0.7 q 2.4 -0.3 4.7 -0.8 q 2.3 -0.5 4.5 -1.2 q 2.3 -0.6 4.5 -1.4 l 1.1 -0.4 q 1.8 -0.7 3.6 -1.4 q 1.7 -0.7 3.4 -1.5 q 1.8 -0.8 3.5 -1.7 q 1.6 -0.8 3.3 -1.8 z" />
+		<path id="Layer" class="s9" d="M 265.8 114 v 59.3 h -154.3 c 0.8 -13.5 3.3 -27.4 12 -37.7 q 0.5 -0.5 0.9 -1 q 0.5 -0.5 1 -1 q 0.5 -0.5 1 -1 q 0.6 -0.5 1.1 -1 l 0.5 -0.4 c 6.8 -5.7 15.3 -9 24.4 -10.6 q 1 -0.2 1.9 -0.3 q 2.7 -0.4 5.4 -0.6 q 2.7 -0.2 5.4 -0.3 q 2.7 -0.1 5.4 0 q 2.8 0.1 5.5 0.4 c 11.4 1 22.7 3.3 34.1 4.5 l 2 0.3 q 2.5 0.2 5.1 0.4 q 2.5 0.2 5.1 0.2 q 2.6 0 5.1 0 q 2.6 -0.1 5.1 -0.3 q 2.4 -0.3 4.7 -0.7 q 2.4 -0.3 4.7 -0.8 q 2.3 -0.5 4.5 -1.2 q 2.3 -0.6 4.5 -1.4 l 1.1 -0.4 q 1.8 -0.7 3.6 -1.4 q 1.7 -0.7 3.4 -1.5 q 1.8 -0.8 3.5 -1.7 q 1.6 -0.8 3.3 -1.8 z" />
+		<path id="Layer" class="s10" d="M 265.8 114 v 0.6 q -1.8 1 -3.6 1.9 q -1.9 0.9 -3.7 1.8 q -1.9 0.8 -3.8 1.6 q -1.9 0.7 -3.8 1.4 l -1.1 0.4 q -2.1 0.7 -4.2 1.3 q -2.2 0.5 -4.3 1 q -2.2 0.5 -4.3 0.8 q -2.2 0.3 -4.4 0.6 q -2.8 0.2 -5.6 0.3 q -2.8 0 -5.6 0 q -2.8 -0.1 -5.6 -0.3 q -2.9 -0.2 -5.6 -0.6 q -1.1 -0.1 -2.1 -0.2 c -10.7 -1.3 -21.4 -3.4 -32.1 -4.3 q -2.4 -0.3 -4.9 -0.4 q -2.5 0 -4.9 0 q -2.5 0 -4.9 0.2 q -2.5 0.1 -4.9 0.4 q -1 0.1 -2 0.3 c -9.6 1.4 -18.7 4.6 -25.9 10.5 q -0.2 0.2 -0.5 0.4 q -0.6 0.5 -1.1 1.1 q -0.6 0.5 -1.2 1.1 q -0.5 0.5 -1.1 1.1 q -0.5 0.6 -1 1.2 c -8.6 10.1 -11.1 23.8 -12 37.1 h -0.1 c 0.8 -13.5 3.3 -27.4 12 -37.7 q 0.5 -0.5 0.9 -1 q 0.5 -0.5 1 -1 q 0.5 -0.5 1 -1 q 0.6 -0.5 1.1 -1 l 0.5 -0.4 c 6.8 -5.7 15.3 -9 24.4 -10.6 q 1 -0.2 1.9 -0.3 q 2.7 -0.4 5.4 -0.6 q 2.7 -0.2 5.4 -0.3 q 2.7 -0.1 5.4 0 q 2.8 0.1 5.5 0.4 c 11.4 1 22.7 3.3 34.1 4.5 l 2 0.3 q 2.5 0.2 5.1 0.4 q 2.5 0.2 5.1 0.2 q 2.6 0 5.1 0 q 2.6 -0.1 5.1 -0.3 q 2.4 -0.3 4.7 -0.7 q 2.4 -0.3 4.7 -0.8 q 2.3 -0.5 4.5 -1.2 q 2.3 -0.6 4.5 -1.4 l 1.1 -0.4 q 1.8 -0.7 3.6 -1.4 q 1.7 -0.7 3.4 -1.5 q 1.8 -0.8 3.5 -1.7 q 1.6 -0.8 3.3 -1.8 z" />
+		<path id="Layer" class="s1" d="M 265.8 107.8 v 65.5 h -207.8 c 2.9 -12.7 7.5 -25.5 17.2 -34 c 8.1 -7 18.5 -10 29.3 -10.5 h 0.9 q 2.9 -0.1 5.7 0.1 q 2.8 0.1 5.7 0.4 q 2.8 0.3 5.6 0.8 q 2.8 0.4 5.6 1.1 l 0.5 0.1 l 1 0.3 c 18.4 4.4 36.2 12.5 55.1 13.5 c 23.6 1.3 46.8 -8.6 65.2 -23.4 l 0.3 -0.3 l 0.8 -0.6 c 5 -4.2 9.9 -8.7 14.9 -13 z" />
+		<path id="Layer" class="s11" d="M 265.8 107.8 v 65.5 h -207.8 c 2.9 -12.7 7.5 -25.5 17.2 -34 c 8.1 -7 18.5 -10 29.3 -10.5 h 0.9 q 2.9 -0.1 5.7 0.1 q 2.8 0.1 5.7 0.4 q 2.8 0.3 5.6 0.8 q 2.8 0.4 5.6 1.1 l 0.5 0.1 l 1 0.3 c 18.4 4.4 36.2 12.5 55.1 13.5 c 23.6 1.3 46.8 -8.6 65.2 -23.4 l 0.3 -0.3 l 0.8 -0.6 c 5 -4.2 9.9 -8.7 14.9 -13 z" />
+		<path id="Layer" class="s12" d="M 265.8 107.8 v 0.5 c -4.6 4 -9.1 8.2 -13.8 12.1 q -0.5 0.4 -1.1 1 l -0.8 0.6 c -18.5 15 -41.8 25 -65.5 23.7 c -19 -1 -36.7 -9.1 -55.1 -13.6 l -1.5 -0.3 l -0.5 -0.1 q -2.8 -0.7 -5.7 -1.2 q -2.8 -0.4 -5.7 -0.7 q -2.9 -0.3 -5.8 -0.4 q -2.8 -0.1 -5.7 0 l -0.9 0.1 c -10.5 0.5 -20.6 3.6 -28.5 10.4 c -9.6 8.4 -14.2 20.9 -17.1 33.5 h -0.1 c 2.9 -12.8 7.5 -25.5 17.2 -34 c 8.1 -7 18.5 -10 29.3 -10.6 h 0.9 q 2.9 0 5.7 0.1 q 2.8 0.1 5.7 0.4 q 2.8 0.3 5.6 0.8 q 2.8 0.5 5.6 1.1 l 0.5 0.2 l 1 0.2 c 18.4 4.5 36.2 12.5 55.1 13.5 c 23.6 1.3 46.8 -8.6 65.2 -23.4 l 0.3 -0.2 l 0.8 -0.7 c 5 -4.2 9.9 -8.7 14.9 -13 z" />
+		<path id="Layer" class="s1" d="M 265.8 -13.6 v 24.9 q -0.5 2 -1.1 3.9 q -0.7 2 -1.5 3.9 q -0.7 1.9 -1.7 3.7 q -0.9 1.8 -2 3.6 c -12.7 20.8 -39.1 28.9 -63.4 30.5 c -24.3 1.6 -49.2 -1.3 -72.9 4.7 c -29.5 7.6 -54.2 28.9 -71 54.3 c -12.2 18.3 -21.4 39.7 -39.4 52.3 q -1.1 0.8 -2.2 1.4 q -1.1 0.7 -2.2 1.4 q -1.1 0.6 -2.3 1.2 q -1.1 0.6 -2.3 1.1 h -18.4 v -186.9 z" />
+		<path id="Layer" class="s13" d="M 265.8 -13.6 v 24.9 q -0.5 2 -1.1 3.9 q -0.7 2 -1.5 3.9 q -0.7 1.9 -1.7 3.7 q -0.9 1.8 -2 3.6 c -12.7 20.8 -39.1 28.9 -63.4 30.5 c -24.3 1.6 -49.2 -1.3 -72.9 4.7 c -29.5 7.6 -54.2 28.9 -71 54.3 c -12.2 18.3 -21.4 39.7 -39.4 52.3 q -1.1 0.8 -2.2 1.4 q -1.1 0.7 -2.2 1.4 q -1.1 0.6 -2.3 1.2 q -1.1 0.6 -2.3 1.1 h -18.4 v -186.9 z" />
+		<path id="Layer" class="s14" d="M 265.8 -13.6 v 24.9 q -0.5 2 -1.1 3.9 q -0.7 2 -1.5 3.9 q -0.7 1.9 -1.7 3.7 q -0.9 1.8 -2 3.6 c -12.7 20.8 -39.1 28.9 -63.4 30.5 c -24.3 1.6 -49.2 -1.3 -72.9 4.7 c -29.5 7.6 -54.2 28.9 -71 54.3 c -12.2 18.3 -21.4 39.7 -39.4 52.3 q -1.1 0.8 -2.2 1.4 q -1.1 0.7 -2.2 1.4 q -1.1 0.6 -2.3 1.2 q -1.1 0.6 -2.3 1.1 h -18.4 v -186.9 z" />
+		<path id="Layer" class="s15" d="M 265.8 10.1 v 1.2 q -0.5 2 -1.1 3.9 q -0.7 2 -1.5 3.9 q -0.7 1.9 -1.7 3.7 q -0.9 1.8 -2 3.6 c -12.7 20.8 -39.1 28.9 -63.4 30.5 c -24.3 1.6 -49.2 -1.3 -72.9 4.7 c -29.5 7.6 -54.2 28.9 -71 54.3 c -12.2 18.3 -21.4 39.7 -39.4 52.3 q -1.1 0.8 -2.2 1.4 q -1.1 0.7 -2.2 1.4 q -1.1 0.6 -2.3 1.2 q -1.1 0.6 -2.3 1.1 h -2.8 q 1.6 -0.6 3.1 -1.3 q 1.5 -0.7 3 -1.4 q 1.5 -0.8 2.9 -1.7 q 1.4 -0.9 2.8 -1.8 c 18 -12.6 27.2 -34 39.4 -52.3 c 16.8 -25.5 41.5 -46.8 71 -54.3 c 23.7 -6 48.6 -3 72.9 -4.7 c 24.3 -1.8 50.7 -9.8 63.4 -30.6 q 1.1 -1.7 2 -3.6 q 0.9 -1.8 1.7 -3.7 q 0.8 -1.9 1.5 -3.9 q 0.6 -1.9 1.1 -3.9 z" />
+		<path id="Layer" class="s1" d="M 217.4 -13.6 q -0.3 0.8 -0.6 1.6 c -9.1 22.6 -33.8 34.9 -57.5 40.5 c -23.7 5.6 -48.8 6.8 -71.1 16.6 c -27.9 12.3 -48.8 37.4 -61.2 65.3 c -9 20.1 -14.5 42.7 -30.2 58.1 q -0.7 0.6 -1.4 1.2 q -0.7 0.7 -1.4 1.3 q -0.7 0.6 -1.5 1.2 q -0.7 0.6 -1.5 1.1 h -5.6 v -186.9 z" />
+		<path id="Layer" class="s16" d="M 217.4 -13.6 q -0.3 0.8 -0.6 1.6 c -9.1 22.6 -33.8 34.9 -57.5 40.5 c -23.7 5.6 -48.8 6.8 -71.1 16.6 c -27.9 12.3 -48.8 37.4 -61.2 65.3 c -9 20.1 -14.5 42.7 -30.2 58.1 q -0.7 0.6 -1.4 1.2 q -0.7 0.7 -1.4 1.3 q -0.7 0.6 -1.5 1.2 q -0.7 0.6 -1.5 1.1 h -5.6 v -186.9 z" />
+		<path id="Layer" class="s17" d="M 217.4 -13.6 q -0.3 0.8 -0.6 1.6 c -9.1 22.6 -33.8 34.9 -57.5 40.5 c -23.7 5.6 -48.8 6.8 -71.1 16.6 c -27.9 12.3 -48.8 37.4 -61.2 65.3 c -9 20.1 -14.5 42.7 -30.2 58.1 q -0.7 0.6 -1.4 1.2 q -0.7 0.7 -1.4 1.3 q -0.7 0.6 -1.5 1.2 q -0.7 0.6 -1.5 1.1 h -1.7 q 1 -0.7 1.9 -1.4 q 0.9 -0.7 1.9 -1.4 q 0.9 -0.8 1.8 -1.6 q 0.8 -0.8 1.7 -1.6 c 15.7 -15.4 21.3 -38 30.2 -58.1 c 12.4 -27.8 33.3 -52.9 61.2 -65.2 c 22.3 -9.8 47.4 -11 71.1 -16.6 c 23.7 -5.6 48.4 -17.9 57.5 -40.5 q 0.1 -0.3 0.2 -0.5 z" />
+		<path id="Layer" class="s1" d="M 111.2 -6.8 c -2 18.9 -17.8 33.4 -34.4 42.7 c -16.6 9.3 -35 15.5 -49.6 27.7 c -18.2 15.2 -28.4 38.4 -31.7 61.9 c -2.3 16.2 -1.8 33.3 -9 47.8 h -1.1 v -165.9 l 44.1 -21 h 81.8 q 0 0.9 0.1 1.7 q 0 0.9 0 1.7 q 0 0.9 -0.1 1.7 q 0 0.9 -0.1 1.7 z" />
+		<path id="Layer" class="s18" d="M 111.2 -6.8 c -2 18.9 -17.8 33.4 -34.4 42.7 c -16.6 9.3 -35 15.5 -49.6 27.7 c -18.2 15.2 -28.4 38.4 -31.7 61.9 c -2.3 16.2 -1.8 33.3 -9 47.8 h -1.1 v -165.9 l 44.1 -21 h 81.8 q 0 0.9 0.1 1.7 q 0 0.9 0 1.7 q 0 0.9 -0.1 1.7 q 0 0.9 -0.1 1.7 z" />
+		<path id="Layer" class="s19" d="M 111.2 -6.8 c -2 18.9 -17.8 33.4 -34.4 42.7 c -16.6 9.3 -35 15.5 -49.6 27.7 c -18.2 15.2 -28.4 38.4 -31.7 61.9 c -2.3 16.2 -1.8 33.3 -9 47.8 h -0.6 c 7.5 -14.5 6.9 -31.9 9.2 -48.2 c 3.3 -23.5 13.5 -46.7 31.8 -61.9 c 14.5 -12.2 33 -18.4 49.6 -27.7 c 16.5 -9.3 32.3 -23.8 34.3 -42.6 q 0.1 -0.8 0.1 -1.6 q 0.1 -0.8 0.1 -1.6 q 0 -0.8 0 -1.6 q 0 -0.8 -0.1 -1.6 h 0.4 q 0 0.8 0.1 1.7 q 0 0.8 0 1.6 q 0 0.9 -0.1 1.7 q 0 0.9 -0.1 1.7 z" />
+		<path id="Layer" class="s1" d="M 108.9 -13.6 c -6.8 9 -16.6 16.2 -26.6 21.6 c -16.8 9 -35.4 14.8 -50.2 26.6 c -18.6 14.8 -29.3 37.8 -33.1 61.3 c -2.8 16.9 -2.5 35 -11.2 49.7 q -0.3 0.4 -0.6 0.9 q -0.3 0.4 -0.6 0.9 q -0.3 0.4 -0.6 0.8 q -0.3 0.4 -0.6 0.9 v -162.7 z" />
+		<path id="Layer" class="s20" d="M 108.9 -13.6 c -6.8 9 -16.6 16.2 -26.6 21.6 c -16.8 9 -35.4 14.8 -50.2 26.6 c -18.6 14.8 -29.3 37.8 -33.1 61.3 c -2.8 16.9 -2.5 35 -11.2 49.7 q -0.3 0.4 -0.6 0.9 q -0.3 0.4 -0.6 0.9 q -0.3 0.4 -0.6 0.8 q -0.3 0.4 -0.6 0.9 v -162.7 z" />
+		<path id="Layer" class="s21" d="M 108.9 -13.6 c -6.8 9 -16.6 16.2 -26.6 21.6 c -16.8 9 -35.4 14.8 -50.2 26.6 c -18.6 14.8 -29.3 37.8 -33.1 61.3 c -2.8 16.9 -2.5 35 -11.2 49.7 q -0.3 0.4 -0.6 0.9 q -0.3 0.4 -0.6 0.9 q -0.3 0.4 -0.6 0.8 q -0.3 0.4 -0.6 0.9 v -0.9 q 1.1 -1.5 2 -3 c 8.8 -14.7 8.5 -32.8 11.2 -49.7 c 3.8 -23.5 14.6 -46.5 33.1 -61.3 c 14.8 -11.8 33.5 -17.6 50.2 -26.6 c 9.9 -5.3 19.6 -12.4 26.3 -21.2 z" />
+		<path id="Layer" class="s1" d="M 75.7 -13.6 c -6.8 9 -16.6 16.2 -26.6 21.6 c -16.8 9 -35.4 14.8 -50.2 26.6 q -1.9 1.5 -3.7 3.2 q -1.8 1.6 -3.5 3.3 q -1.7 1.7 -3.2 3.6 q -1.6 1.8 -3.1 3.7 v -62 z" />
+		<path id="Layer" class="s22" d="M 75.7 -13.6 c -6.8 9 -16.6 16.2 -26.6 21.6 c -16.8 9 -35.4 14.8 -50.2 26.6 q -1.9 1.5 -3.7 3.2 q -1.8 1.6 -3.5 3.3 q -1.7 1.7 -3.2 3.6 q -1.6 1.8 -3.1 3.7 v -62 z" />
+		<path id="Layer" class="s23" d="M 75.7 -13.6 c -6.8 9 -16.6 16.2 -26.6 21.6 c -16.8 9 -35.4 14.8 -50.2 26.6 q -1.9 1.5 -3.7 3.2 q -1.8 1.6 -3.5 3.3 q -1.7 1.7 -3.2 3.6 q -1.6 1.8 -3.1 3.7 v -0.8 q 1.5 -1.9 3 -3.6 q 1.5 -1.8 3.2 -3.5 q 1.6 -1.7 3.4 -3.2 q 1.7 -1.6 3.5 -3.1 c 14.9 -11.8 33.5 -17.6 50.2 -26.6 c 9.9 -5.3 19.6 -12.4 26.4 -21.2 z" />
+		<path id="Layer" class="s24" d="M -14.3 -11.2 h 279.8 v 187.2 h -279.8 z" />
+	</g>
+
+	<path id="Layer" class="s0" d="M 29.7 30.7 q -0.4 0.1 -0.8 0.2 q -0.4 0 -0.8 0 q -0.4 0.1 -0.8 0.1 h -3.9 l 1.4 -3.1 l 1.3 -0.1 q 0.7 0.1 1.3 0 q 0.6 -0.1 1.2 -0.2 q 0.6 -0.1 1.2 -0.3 q 0.6 -0.2 1.2 -0.4 l 11 -4.8 l -1 5.6 l -10.5 2.9 q -0.4 0.1 -0.8 0.1 z" />
+	<path id="Layer" class="s0" d="M 23 32 h 5 q 0.3 0 0.5 0 q 0.3 0 0.6 -0.1 q 0.2 0 0.5 0 q 0.2 -0.1 0.5 -0.1 l 10.5 -1.9 l -1 5.6 l -10.2 -0.5 h -7.7 z" />
+	<path id="Layer" class="s0" d="M 28.7 36 q 0.4 0 0.8 0.1 q 0.4 0 0.7 0.1 q 0.4 0 0.8 0.1 l 8.1 1.4 l -0.7 4 l -6 -1.8 q -0.6 -0.2 -1.3 -0.3 q -0.7 -0.2 -1.4 -0.3 q -0.6 -0.1 -1.3 -0.1 q -0.7 -0.1 -1.4 -0.1 h -7 l 1.3 -3.1 h 6.7 q 0.4 0 0.7 0 z" />
+	<use id="img1" href="#img1" transform="matrix(1,0,0,1,-1795.8,-1394.8)"/>
+</svg>

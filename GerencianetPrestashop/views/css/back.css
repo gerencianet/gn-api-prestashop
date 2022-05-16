@@ -1,0 +1,127 @@
+/**
+* 2007-2022 PrestaShop
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author    PrestaShop SA <contact@prestashop.com>
+*  @copyright 2007-2022 PrestaShop SA
+*  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*/
+
+/**
+ * Don't forget to prefix your containers with your own identifier
+ * to avoid any conflicts with others containers.
+ */
+
+#content .tab-pane:first-child .panel {
+	border-top-left-radius: 0;
+}
+
+.GerencianetPrestashop-header .text-branded,
+.GerencianetPrestashop-content .text-branded {
+	color: #00aff0;
+}
+
+.GerencianetPrestashop-header h4,
+.GerencianetPrestashop-content h4,
+.GerencianetPrestashop-content h5 {
+	margin: 2px 0;
+	color: #00aff0;
+	font-size: 1.8em;
+}
+
+.GerencianetPrestashop-header h4 {
+	margin-top: 5px;
+}
+
+.GerencianetPrestashop-header .col-md-6 {
+	margin-top: 18px;
+}
+
+.GerencianetPrestashop-content h4 {
+	margin-bottom: 10px;
+}
+
+.GerencianetPrestashop-content h5 {
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+
+.GerencianetPrestashop-content h6 {
+	font-size: 1.3em;
+	margin: 1px 0 4px 0;
+}
+
+.GerencianetPrestashop-header>.col-md-4 {
+	height: 65px;
+	vertical-align: middle;
+	border-left: 1px solid #ddd;
+}
+
+.GerencianetPrestashop-header>.col-md-4:first-child {
+	border-left: none;
+}
+
+.GerencianetPrestashop-header #create-account-btn {
+	margin-top: 14px;
+}
+
+.GerencianetPrestashop-content dd+dt {
+	margin-top: 5px;
+}
+
+.GerencianetPrestashop-content ul {
+	padding-left: 15px;
+}
+
+.GerencianetPrestashop-content .ul-spaced li {
+	margin-bottom: 5px;
+}
+
+.alert {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+
+.alert-dismissable .close,
+.alert-dismissible .close {
+	position: relative;
+	top: -2px;
+	right: -21px;
+	color: inherit;
+}
+
+a.close {
+	text-decoration: none !important;
+	font-size: 18px !important;
+	line-height: 1.2;
+}
+
+.close {
+	float: right;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	filter: alpha(opacity=20);
+	opacity: .2;
+}
