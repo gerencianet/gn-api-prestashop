@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+[type=radio] { 
+  position: absolute ;
+  opacity: 0 ;
+  width: 0 ;
+  height: 0 ;
+  
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer ;
+}
+
+/* CHECKED STYLES */
+
+.card-gn {
+    width: 479px;
+    height: 300px;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective: 600px;
+}
+
+.card_principal {
+    top: 0;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    -webkit-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.card_front {
+    padding: 18px;
+    -webkit-transform: rotateY(0);
+    -moz-transform: rotateY(0);
+    background: url("../img/card-front-sem-chip.svg") no-repeat center;
+    width: 100%;
+    height: 300px;
+}
+
+.card_number {
+    display: block;
+    width: 100%;
+    word-spacing: 4px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.card_label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+.card_info {
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card_back {
+    padding: 18px 0;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    width: 479px;
+    height: 300px;
+    background: url("../img/card-back.svg");
+}
+
+.card_black_line {
+    padding: 15px 15px 0;
+    background-color: #303030;
+    height: 45px;
+}
+
+.card_secret_last {
+    color: #fff;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+}
+
+
+.card_secret {
+    padding: 5px 12px;
+    background-color: #c4c4c4;
+    position: relative;
+}
+
+.card_secret:before {
+    content: attr(data-conteudo);
+    font-family: 'Rock Salt', cursive;
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    height: calc(100%);
+    width: calc(100% - 45px);
+    border-radius: 4px;
+    background: repeating-linear-gradient(45deg,
+            #ededed,
+            #ededed 5px,
+            #f9f9f9 5px,
+            #f9f9f9 10px);
+}
+
+.girar .card_front {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
+.girar .card_back {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+}
+
+.GNinstallments {
+    text-align: center;
+    padding: 20px;
+}
+
+.dropdown-el {
+    min-width: 12em;
+    position: relative;
+    display: inline-block;
+    margin-right: 1em;
+    min-height: 2em;
+    max-height: 2em;
+    overflow: hidden;
+    top: 0.5em;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    color: #fff !important;
+    outline: none;
+    border: 0.06em solid transparent;
+    border-radius: 0.5em;
+    background-color: #F58642;
+    transition: 0.25s all ease-in-out;
+}
+
+.dropdown-el .GN-inputInstallments:focus+.GN-labelInstallments {
+    background: #def;
+}
+
+.dropdown-el .GN-inputInstallments {
+    width: 1px;
+    height: 1px;
+    display: inline-block;
+    position: absolute;
+    opacity: 0.01;
+}
+
+.dropdown-el .GN-labelInstallments {
+    font-size: 1rem !important;
+    display: block !important;
+    height: 2em !important;
+    line-height: 2em !important;
+    padding-left: 1em !important;
+    padding-right: 3em !important;
+    cursor: pointer !important;
+    position: relative !important;
+    transition: 0.25s color ease-in-out !important;
+
+}
+
+.dropdown-el .GN-labelInstallments:nth-child(2) {
+    margin-top: 2em !important;
+    border-top: 0.06em solid #d9d9d9 !important;
+}
+
+.dropdown-el .GN-inputInstallments:checked+.GN-labelInstallments {
+    display: block !important;
+    border-top: none !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 100% !important;
+}
+
+.dropdown-el .GN-inputInstallments:checked+.GN-labelInstallments:nth-child(2) {
+    margin-top: 0 !important;
+    position: relative !important;
+}
+
+.dropdown-el::after {
+    content: "";
+    position: absolute;
+    right: 0.8em;
+    top: 0.9em;
+    border: 0.3em solid #ffa500;
+    border-color: #ffa500 transparent transparent transparent;
+    transition: 0.25s all ease-in-out;
+}
+
+.dropdown-el.expanded {
+    border: 0.06em solid #F58642;
+    background: #fff;
+    border-radius: 0.25em;
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 3px 3px 5px 0px;
+    max-height: 1000em;
+    color: #444;
+}
+
+.dropdown-el.expanded .GN-labelInstallments {
+    border-top: 0.06em solid #d9d9d9 !important;
+}
+
+.dropdown-el.expanded .GN-labelInstallments:hover {
+    color: #F58642 !important;
+}
+
+.dropdown-el.expanded .GN-inputInstallments:checked+.GN-labelInstallments {
+    color: #F58642 !important;
+}
+
+.dropdown-el.expanded::after {
+    transform: rotate(-180deg) !important;
+    top: 0.55em !important;
+}
+
+.label-brands {
+    display: block;
+}
+
+
+@media only screen and (max-width: 775px) {
+
+    .dropdown-el {
+        width: 100%;
+    }
+
+    .card_back {
+        width: 100%;
+    }
+
+    .card_number {
+        font-size: 20px;
+    }
+
+    .card_label {
+        font-size: 12px;
+    }
+
+    .card_info .card_name {
+        font-size: 15px;
+    }
+
+    .card_info .card_date {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .card_front {
+        background: url("../img/card-front-sem-chip.svg");
+        width: 95%;
+        height: 95%;
+    }
+
+    .chip {
+        height: 35px !important;
+    }
+
+    .dropdown-el {
+        width: 100%;
+    }
+
+    .card_back {
+        width: 100%;
+    }
+
+    .card_number {
+        font-size: 15px;
+    }
+
+    .card_label {
+        font-size: 8px;
+    }
+
+    .card_info .card_name {
+        font-size: 10px;
+    }
+
+    .card_info .card_date {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+
+
+    .card_front {
+        background: url("../img/card-front-sem-chip.svg");
+        width: 100%;
+        height: 80%;
+    }
+
+    .card_back {
+        width: 100%;
+        height: 77%;
+    }
+
+    .chip {
+        height: 25px !important;
+    }
+
+    .dropdown-el {
+        width: 100%;
+    }
+
+    .card_number {
+        font-size: 13px;
+    }
+
+    .dropdown-el .GN-labelInstallments {
+        font-size: 13px !important;
+    }
+
+    .card_label {
+        font-size: 8px;
+    }
+
+    .card_info .card_name {
+        font-size: 11px;
+    }
+
+    .card_info .card_date {
+        font-size: 11px;
+    }
+
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    .card-gn {
+        display: none;
+    }
+
+    .dropdown-el {
+        width: 100%;
+    }
+
+    .dropdown-el .GN-labelInstallments {
+        font-size: 11px !important;
+    }
+
+
+}
+
