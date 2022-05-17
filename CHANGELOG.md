@@ -1,4 +1,8 @@
 
+# v1.0.0
+
+* Fix: Adição da funcionalidade PIX e atualização das versões do Prestashop e PHP 
+
 # v0.3.2
 
 * Fix: Realiza verificação da versão do TLS do servidor.
